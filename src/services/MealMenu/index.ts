@@ -40,6 +40,24 @@ export const UpdateMeal = async (userData: FieldValues,id:string) => {
     return Error(error);
   }
 };
+export const ResponseOrder = async (userData: FieldValues,id:string) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/customers/response/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+
+    const result = await res.json();
+    revalidateTag("vieworders");
+    return result;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return Error(error);
+  }
+};
 
 
 export const getAllProducts = async (
@@ -64,6 +82,28 @@ export const getAllProducts = async (
       {
         next: {
           tags: ["Menu"],
+        },
+      }
+    );
+    const data = await res.json();
+    return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return Error(error.message);
+  }
+};
+export const getAllOrder = async (
+  page?: string,
+  limit?: string,
+) => {
+ 
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/customers/orders?limit=${limit}&page=${page}`,
+      {
+        next: {
+          tags: ["vieworders"],
         },
       }
     );

@@ -45,7 +45,7 @@ const data = {
       items: [
         {
           title: "View Order",
-          url: "/admin/responseorder",
+          url: "/admin/vieworder",
         },
       ],
       icon: Bot,

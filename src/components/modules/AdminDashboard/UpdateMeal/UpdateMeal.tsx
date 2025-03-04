@@ -8,15 +8,12 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useState } from "react";
 import TablePagination from "@/components/ui/core/NMTable/TablePagination";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const UpdateMeal = ({ products, meta }: { products: IMeal[]; meta: IMeta }) => {
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-
-  console.log(products)
-
-  const handleUpdate = (meal: IMeal) => {
-    console.log("Updating meal:", meal);
-  };
+  
+  const router = useRouter();
 
   const columns: ColumnDef<IMeal>[] = [
     {
@@ -105,7 +102,9 @@ const UpdateMeal = ({ products, meta }: { products: IMeal[]; meta: IMeta }) => {
       accessorKey: "action",
       header: "Action",
       cell: ({ row }) => (
-        <Button size="sm" variant="outline" onClick={() => handleUpdate(row.original)}>
+        <Button size="sm" variant="outline" onClick={() => router.push(
+          `/admin/updatemeal/${row.original._id}`
+        )}>
           Update
         </Button>
       ),

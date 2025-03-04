@@ -22,6 +22,24 @@ export const CreateMealMenu = async (userData: FieldValues) => {
     return Error(error);
   }
 };
+export const UpdateMeal = async (userData: FieldValues,id:string) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userData),
+    });
+
+    const result = await res.json();
+    revalidateTag("Menu");
+    return result;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return Error(error);
+  }
+};
 
 
 export const getAllProducts = async (

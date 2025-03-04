@@ -114,6 +114,23 @@ export const getAllOrder = async (
     return Error(error.message);
   }
 };
+export const PaymentOrder = async (
+  page?: string,
+  limit?: string,
+) => {
+ 
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/payment/Surjopay?limit=${limit}&page=${page}`,
+    );
+    const data = await res.json();
+    return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return Error(error.message);
+  }
+};
 
 
 

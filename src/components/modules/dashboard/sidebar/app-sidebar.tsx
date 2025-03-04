@@ -47,6 +47,10 @@ const data = {
           title: "View Order",
           url: "/admin/vieworder",
         },
+        {
+          title: "Payment Order",
+          url: "/admin/paymentorder",
+        },
       ],
       icon: Bot,
     },

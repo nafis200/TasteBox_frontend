@@ -72,6 +72,21 @@ const data = {
         },
       ],
     },
+    {
+      title: "Order Options",
+      url: "#",
+      items: [
+        {
+          title: "Payment Order details",
+          url: "/user/dashboard/preferpaymentorder",
+        },
+        {
+          title: "View Order details",
+          url: "/user/dashboard/prefervieworder",
+        },
+      ],
+      icon: Bot,
+    },
   ],
   
 }

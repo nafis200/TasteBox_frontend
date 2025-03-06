@@ -35,15 +35,16 @@ const UpdateMealPrefernce = ({Data,id}:{Data:any,id:string}) => {
         formState: { isSubmitting },
       } = form;
        const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        console.log(data?.ingredient)
           try {
+            if(Data?.data?.author !== id){
+              toast.error("you cant update another meal");
+              return;
+            }
             const formattedData = {
               ...data,
               ingredient: data?.ingredient?.map((item: string) => item.trim())
             };
-            console.log("hellow")
             const res = await UpdateMealprefer(formattedData,id)
-            console.log(res)
             if (res?.success) {
               toast.success(res?.message);
             } else {

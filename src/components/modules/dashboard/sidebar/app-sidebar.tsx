@@ -25,17 +25,17 @@ const data = {
   navMain: [
     {
       title: "Meal Options",
-      url: "/admin",
+      url: "/admin/dashboard",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
           title: "Make Meal",
-          url: "/admin/createmeal",
+          url: "/admin/dashboard/createmeal",
         },
         {
           title: "Updated Meal",
-          url: "/admin/updatemeal",
+          url: "/admin/dashboard/updatemeal",
         },
       ],
     },
@@ -45,11 +45,11 @@ const data = {
       items: [
         {
           title: "View Order",
-          url: "/admin/vieworder",
+          url: "/admin/dashboard/vieworder",
         },
         {
           title: "Payment Order",
-          url: "/admin/paymentorder",
+          url: "/admin/dashboard/paymentorder",
         },
       ],
       icon: Bot,

@@ -11,15 +11,9 @@ const roleBasedPrivateRoutes = {
 type Role = keyof typeof roleBasedPrivateRoutes;
 
 export const middleware = async(request: NextRequest)=>{
-    console.log("hellow world")
     const userInfo = await getCurrentUser();
     const { pathname } = request.nextUrl;
-
-    
-
   
-
-
     if (!userInfo) {
       if (authRoutes.includes(pathname)) {
         return NextResponse.next();

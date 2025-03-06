@@ -22,6 +22,41 @@ export const CreateMealMenu = async (userData: FieldValues) => {
     return Error(error);
   }
 };
+export const getAllMenu = async (
+  query?: { [key: string]: string | string[] | undefined }
+) => {
+  const params = new URLSearchParams();
+
+  if (query?.price) {
+    params.append("price", query?.price.toString());
+  }
+
+  if (query?.dietary_preferences) {
+    params.append("dietary_preferences", query?.dietary_preferences.toString());
+  }
+  if (query?.cuisine) {
+    params.append("cuisine", query?.cuisine.toString());
+  }
+  if (query?.rating) {
+    params.append("rating", query?.rating.toString());
+  }
+
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/providers/orders?${params}`,
+      {
+        next: {
+          tags: ["Menu"],
+        },
+      }
+    );
+    const data = await res.json();
+    return data;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return Error(error.message);
+  }
+};
 export const UpdateMeal = async (userData: FieldValues,id:string) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${id}`, {

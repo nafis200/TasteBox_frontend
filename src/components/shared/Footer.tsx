@@ -23,7 +23,7 @@ const Footer = () => {
     <footer className="bottom-0 mt-auto w-full bg-[#1C2434] p-8 lg:mt-3">
       <div className="container mx-auto flex flex-col md:flex-row md:space-x-8">
         <div className="flex items-center justify-center md:w-1/4">
-          <h1 className="text-3xl font-bold text-gray-200">CarStore</h1>
+          <h1 className="text-3xl font-bold text-gray-200">Meal Box</h1>
         </div>
         <div className="flex-1 text-center md:w-2/4">
           <h2 className="mb-6 text-xl font-bold text-white">Our Contacts</h2>

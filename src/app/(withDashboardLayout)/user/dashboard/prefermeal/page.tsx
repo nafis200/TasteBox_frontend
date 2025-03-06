@@ -1,9 +1,12 @@
+import Mealpreference from "@/components/modules/UserDashboard/mealPrefernce/MealPreference";
 
 
-const PreferMeal = () => {
+
+const PreferMeal = async() => {
+   
     return (
         <div>
-            
+            <Mealpreference/>
         </div>
     );
 };

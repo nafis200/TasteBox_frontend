@@ -67,8 +67,8 @@ const data = {
           url: "/user/dashboard/prefermeal",
         },
         {
-          title: "trackOrder",
-          url: "/user/dashboard/trackorder",
+          title: "View and update",
+          url: "/user/dashboard/preferviewmeal",
         },
       ],
     },

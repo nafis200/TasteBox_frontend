@@ -1,7 +1,5 @@
 import ShowOrder from "@/components/modules/AdminDashboard/ViewData/ShowOrder";
-import { getAllOrder } from "@/services/MealMenu";
-
-
+import { getAllPreferMeal } from "@/services/customerMeal";
 
 
 const ViewOrder=  async ({
@@ -10,7 +8,7 @@ const ViewOrder=  async ({
     searchParams: Promise<{ page: string, limit:string }>;
   }) => {
     const { page, limit } = await searchParams;
-    const results = await getAllOrder(page, limit);
+    const results = await  getAllPreferMeal(page, limit);
 
     const {result,meta} = results?.data
 

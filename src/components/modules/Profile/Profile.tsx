@@ -27,7 +27,7 @@ const profileSchema = z.object({
     .string()
     .min(3, { message: "Address is required" })
     .max(100, { message: "Address must be less than 100 characters greater than 3" }).optional(),
-  phone: z
+    phone_number: z
     .string()
     .min(10, { message: "Phone number must be at least 10 digits" })
     .max(15, { message: "Phone number must be less than 15 digits" })
@@ -57,7 +57,7 @@ const ProfilePageUpdate = () => {
     defaultValues: {
       name: userData?.data?.name || "",
       address: userData?.data?.address || "",
-      phone: userData?.data?.phone_number || "",
+      phone_number: userData?.data?.phone_number || "",
     },
   });
   const onSubmit: SubmitHandler<FieldValues> = async (formData) => {
@@ -123,7 +123,7 @@ const ProfilePageUpdate = () => {
 
                   <FormField
                     control={form.control}
-                    name="phone"
+                    name="phone_number"
                     render={({ field }) => (
                       <FormItem>
                         <FormLabel>Phone Number</FormLabel>

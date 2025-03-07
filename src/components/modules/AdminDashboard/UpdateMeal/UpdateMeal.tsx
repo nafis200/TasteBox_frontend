@@ -103,7 +103,7 @@ const UpdateMeal = ({ products, meta }: { products: IMeal[]; meta: IMeta }) => {
       header: "Action",
       cell: ({ row }) => (
         <Button size="sm" variant="outline" onClick={() => router.push(
-          `/admin/updatemeal/${row.original._id}`
+          `/admin/dashboard/updatemeal/${row.original._id}`
         )}>
           Update
         </Button>

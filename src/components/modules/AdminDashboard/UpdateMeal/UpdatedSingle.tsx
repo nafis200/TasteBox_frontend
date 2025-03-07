@@ -35,13 +35,16 @@ const UpdatedSingle = ({Data,id}:{Data:any,id:string}) => {
         formState: { isSubmitting },
       } = form;
        const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+        
+      
 
           try {
             const formattedData = {
               ...data,
               ingredient: data?.ingredient?.split(",").map((item: string) => item.trim()),
             };
-      
+            
+            
             const res = await UpdateMeal(formattedData,id)
           
             if (res?.success) {

@@ -1,7 +1,8 @@
 # Meal Box
 
-- [@PMealBox-fronted-link](https://portfolio-frontend-gamma-weld.vercel.app/) 
+- [@PMealBox-fronted-link](https://meal-shop-frontend.vercel.app/) 
 - [@MealBox backend github](https://github.com/nafis200/portfolio-backend) 
+- [@MealBox fronted github](https://github.com/nafis200/assignment-6-frontend) 
 - [@Video-link](https://drive.google.com/file/d/1mtUTtk2DsIllOkRZDy7zlra3AZVbRlay/view?usp=sharing) 
 
 - User Authentication (JWT-based authentication with bcrypt for password hashing)

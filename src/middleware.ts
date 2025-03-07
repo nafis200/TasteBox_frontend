@@ -7,6 +7,7 @@ const roleBasedPrivateRoutes = {
   user: [/^\/user/, /^\/profile/,/^\/cart/],
   admin: [/^\/admin/,/^\/profile/,/^\/cart/],
 };
+// 
 
 type Role = keyof typeof roleBasedPrivateRoutes;
 

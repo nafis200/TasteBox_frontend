@@ -48,10 +48,14 @@ const { user } = useUser();
     image: z.string().url({ message: "Enter a valid image URL." }),
     dietary_preferences: z.string().optional(),
     ingredient: z.string().min(1, { message: "At least one ingredient is required." }),
-    rating: z.number().min(0).max(5, { message: "Rating must be between 0 and 5." }),
     availability: z.boolean(),
     portion_size: z.string().min(3, { message: "Portion size is required." }),
-    price: z.number().min(0, { message: "Price must be positive." }),
+    rating: z.string().transform((val) => Number(val)).refine((val) => !isNaN(val) && val >= 0 && val <= 5, {
+      message: "Rating must be between 0 and 5.",
+    }),
+    price: z.string().transform((val) => Number(val)).refine((val) => !isNaN(val) && val >= 0, {
+      message: "Price must be positive.",
+    }),
   });
 
   const form = useForm({
@@ -80,6 +84,7 @@ const { user } = useUser();
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
+      console.log(data)
       const formattedData = {
         ...data,
         author:userData?.data?._id,
@@ -181,7 +186,7 @@ const { user } = useUser();
               <FormItem>
                 <FormLabel>Price</FormLabel>
                 <FormControl>
-                  <Input type="number" placeholder="Enter price" {...field} />
+                  <Input type="number" placeholder="Enter price" {...field}  />
                 </FormControl>
                 <FormMessage />
               </FormItem>

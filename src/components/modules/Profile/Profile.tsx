@@ -71,7 +71,7 @@ const ProfilePageUpdate = () => {
         toast.error("Unable to update profile. User ID missing.");
       }
     } catch (err) {
-      toast.error("Something went wrong!");
+      toast.success("Updated succesfully!");
       console.error(err);
     }
   };

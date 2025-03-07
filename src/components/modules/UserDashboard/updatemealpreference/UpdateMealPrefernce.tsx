@@ -15,10 +15,12 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { UpdateMealprefer } from "@/services/customerMeal";
+import { useUser } from "@/context/UserContext";
 
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const UpdateMealPrefernce = ({Data,id}:{Data:any,id:string}) => {
+   const {user} = useUser()
     const form = useForm({
         defaultValues: {
           name: Data[0]?.name ||  "",
@@ -35,8 +37,10 @@ const UpdateMealPrefernce = ({Data,id}:{Data:any,id:string}) => {
         formState: { isSubmitting },
       } = form;
        const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+        console.log(id, Data[0]?.author?.email)
+
           try {
-            if(Data?.data?.author !== id){
+            if(Data[0]?.author?.email !== user?.jwtPayload?.email){
               toast.error("you cant update another meal");
               return;
             }

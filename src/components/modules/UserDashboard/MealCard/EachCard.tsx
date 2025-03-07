@@ -1,11 +1,22 @@
+"use client"
 /* eslint-disable @typescript-eslint/no-explicit-any */
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Utensils, Leaf, Star, Tag } from "lucide-react";
+import { useAppDispatch } from "@/redux/hooks";
+import { addProduct } from "@/redux/features/cartSlice";
 
 const EachCard = ({ product }: any) => {
+
+  const dispatch = useAppDispatch()
+
+
+  const handleAddProduct = (producted:any)=>{
+    console.log(producted)
+    dispatch(addProduct(producted))
+  }
+
   return (
     <Card
       key={product._id}
@@ -43,7 +54,7 @@ const EachCard = ({ product }: any) => {
           <span className="ml-2 text-sm text-gray-600">{product.rating}</span>
         </div>
         <p className="mt-2 text-gray-800 font-semibold">${product.price.toFixed(2)}</p>
-        <Button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white">Buy Now</Button>
+        <Button onClick={()=>handleAddProduct(product)} className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white">Add to Cart</Button>
       </CardContent>
     </Card>
   );

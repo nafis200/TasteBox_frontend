@@ -1,5 +1,6 @@
 "use client"
 
+
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -76,42 +77,46 @@ const LoginForm = () => {
           <h1 className="text-2xl font-semibold">Login</h1>
           <p className="text-gray-600 text-sm">Welcome back! Please login to your account.</p>
         </div>
+        
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email or Phone</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter your email or phone" {...field} className="rounded-lg" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Password</FormLabel>
-                  <FormControl>
-                    <Input type="password" placeholder="Enter your password" {...field} className="rounded-lg" />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button
-              type="submit"
-              className="mt-5 w-full bg-primary text-white py-2 rounded-lg hover:bg-opacity-90 transition"
-            >
-              {isSubmitting ? "Logging in..." : "Login"}
-            </Button>
-          </form>
+          {/* Suspense Boundary added here */}
+       
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email or Phone</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your email or phone" {...field} className="rounded-lg" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input type="password" placeholder="Enter your password" {...field} className="rounded-lg" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button
+                type="submit"
+                className="mt-5 w-full bg-primary text-white py-2 rounded-lg hover:bg-opacity-90 transition"
+              >
+                {isSubmitting ? "Logging in..." : "Login"}
+              </Button>
+            </form>
         </Form>
+        
         <p className="text-sm text-gray-600 text-center mt-4">
           Don&#39;t have an account? 
           <Link href="/register" className="text-primary font-semibold hover:underline"> Register</Link>

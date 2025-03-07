@@ -90,7 +90,7 @@ const { user } = useUser();
       
 
       const res = await CreateCustomerMeaMenu(formattedData);
-      console.log(res)
+    
       if (res?.success) {
         toast.success(res?.message);
       } else {

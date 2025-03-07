@@ -70,10 +70,10 @@ export default function Navbar() {
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem><Link href={`/profile`}>Update Profile</Link></DropdownMenuItem>
+                  <DropdownMenuItem><Link href={`/mealcard`}>Buy shop</Link></DropdownMenuItem>
                   <DropdownMenuItem>
                     <Link href={`/${user?.jwtPayload?.role}/dashboard`}>Dashboard</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>My Shop</DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
                     className="bg-red-500 cursor-pointer"

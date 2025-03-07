@@ -35,7 +35,7 @@ const UpdatedSingle = ({Data,id}:{Data:any,id:string}) => {
         formState: { isSubmitting },
       } = form;
        const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-        console.log(data)
+
           try {
             const formattedData = {
               ...data,
@@ -43,7 +43,7 @@ const UpdatedSingle = ({Data,id}:{Data:any,id:string}) => {
             };
       
             const res = await UpdateMeal(formattedData,id)
-            console.log(res)
+          
             if (res?.success) {
               toast.success(res?.message);
             } else {

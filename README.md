@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Meal Box
 
-## Getting Started
+- [@PMealBox-fronted-link](https://portfolio-frontend-gamma-weld.vercel.app/) 
+- [@MealBox backend github](https://github.com/nafis200/portfolio-backend) 
+- [@Video-link](https://drive.google.com/file/d/1mtUTtk2DsIllOkRZDy7zlra3AZVbRlay/view?usp=sharing) 
 
-First, run the development server:
+- User Authentication (JWT-based authentication with bcrypt for password hashing)
+- Role-Based Access Control (Customers and Meal Providers have different access rights)
+- Customer Dashboard (Meal selection, order tracking, and preference management)
+- Meal Provider Dashboard (Manage menus, view orders, and respond to customer requests)
+- Meal Selection & Customization (Customers can personalize meal plans based on dietary needs)
+- Search and Match System (Search for meals based on dietary preferences, cuisine, and ratings)
+- Order Management System (Customers can place, track, and manage their orders)
+- Meal Provider Management (Providers can create/update meal menus and respond to orders)
+- Responsive UI/UX Design (Mobile-friendly and easy-to-use interface)
+- Protected API Routes (Middleware to restrict access based on roles)
+- Database Collections (Users, Orders, and Meal Providers stored in MongoDB)
+- CRUD Operations (Create, Read, Update, Delete functionalities for users, meals, and orders)
+- Deployment Strategy (Frontend on Vercel, Backend on Heroku or AWS)
+- State Management with Redux (For managing global state across the application)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+# Technology used
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Typescript
+- redux
+- next js
+- shadcn
+- moongose
+- mongodb

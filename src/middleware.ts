@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 const authRoutes = ["/login", "/register"];
 
 const roleBasedPrivateRoutes = {
-  user: [/^\/user/, /^\/profile/],
-  admin: [/^\/admin/,/^\/profile/],
+  user: [/^\/user/, /^\/profile/,/^\/cart/],
+  admin: [/^\/admin/,/^\/profile/,/^\/cart/],
 };
 
 type Role = keyof typeof roleBasedPrivateRoutes;
@@ -44,6 +44,7 @@ export const config = {
       "/admin", 
       "/admin/:page",
       "/user/dashboard",
-      "/user/dashboard/:page"
+      "/user/dashboard/:page",
+      "/cart"
     ],
   };

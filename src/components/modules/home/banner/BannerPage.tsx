@@ -16,7 +16,7 @@ const Banner = () => {
     <div>
       <Carousel autoPlay infiniteLoop showThumbs={false}>
         {images.map((src, index) => (
-          <div key={index} className="relative w-full lg:h-[600px] md:h-[400px] h-[300px]">
+          <div key={index} className="relative w-full lg:h-[500px] md:h-[400px] h-[300px]">
             <Image
               src={src}
               alt={`Banner Image ${index + 1}`}

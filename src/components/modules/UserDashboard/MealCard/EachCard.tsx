@@ -1,21 +1,28 @@
-"use client"
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { Utensils, Leaf, Star, Tag } from "lucide-react";
+import { Utensils,Tag } from "lucide-react";
+// import { Utensils,Tag,Leaf, Star, } from "lucide-react";
 import { useAppDispatch } from "@/redux/hooks";
 import { addProduct } from "@/redux/features/cartSlice";
+import { useRouter } from "next/navigation";
+import { ShoppingCart, Eye } from "lucide-react";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const EachCard = ({ product }: any) => {
+  const dispatch = useAppDispatch();
+  const router = useRouter();
 
-  const dispatch = useAppDispatch()
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleAddProduct = (producted: any) => {
+    dispatch(addProduct(producted));
+  };
 
-
-  const handleAddProduct = (producted:any)=>{
-    console.log(producted)
-    dispatch(addProduct(producted))
-  }
+  const handleViewDetails = () => {
+    router.push(`/mealcard/${product._id}`);
+  };
 
   return (
     <Card
@@ -37,7 +44,7 @@ const EachCard = ({ product }: any) => {
         <p className="text-gray-500 flex items-center gap-2">
           <Utensils size={16} className="text-green-500" /> {product.cuisine}
         </p>
-        <div className="mt-2">
+        {/* <div className="mt-2">
           <p className="text-sm font-semibold flex items-center gap-2">
             <Leaf size={16} className="text-orange-500" /> Ingredients:
           </p>
@@ -52,9 +59,25 @@ const EachCard = ({ product }: any) => {
         <div className="flex items-center mt-2">
           <Star size={18} fill="orange" stroke="orange" />
           <span className="ml-2 text-sm text-gray-600">{product.rating}</span>
-        </div>
+        </div> */}
         <p className="mt-2 text-gray-800 font-semibold">${product.price.toFixed(2)}</p>
-        <Button onClick={()=>handleAddProduct(product)} className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white">Add to Cart</Button>
+        <div className="mt-4 flex gap-3">
+          <Button
+            onClick={() => handleAddProduct(product)}
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2"
+          >
+            <ShoppingCart size={16} />
+            Add to Cart
+          </Button>
+          <Button
+            variant="outline"
+            onClick={handleViewDetails}
+            className="flex-1 border-blue-600 text-blue-600 hover:bg-blue-50 flex items-center justify-center gap-2"
+          >
+            <Eye size={16} />
+            View
+          </Button>
+        </div>
       </CardContent>
     </Card>
   );

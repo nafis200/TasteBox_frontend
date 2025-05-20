@@ -57,6 +57,32 @@ export const getAllMenu = async (
     return Error(error.message);
   }
 };
+
+export const getSingleMeal = async (id: string) => {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/orders/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      cache: "no-store", 
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch meal");
+    }
+
+    const result = await res.json();
+    return result.data[0];
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return Error(error.message || "Something went wrong");
+  }
+};
+
+
+
 export const UpdateMeal = async (userData: FieldValues,id:string) => {
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${id}`, {

@@ -1,9 +1,10 @@
-"use client"
+"use client";
 import { Button } from "@/components/ui/button";
 import { clearCart, subTotalSelector } from "@/redux/features/cartSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { PaymentUser } from "@/services/payment";
 import React from "react";
+import { FaCreditCard } from "react-icons/fa";
 
 const PaymentDetails = () => {
   const subTotal = useAppSelector(subTotalSelector);
@@ -24,32 +25,39 @@ const PaymentDetails = () => {
       window.location.href = result.data;
     }
   };
+
   return (
-    <div>
-      <div className="border-2 border-white bg-background brightness-105 rounded-md col-span-4 h-fit p-5 mt-20">
-        <h1 className="text-2xl font-bold">Payment Details</h1>
-        <div className="space-y-2 mt-4">
+    <div className="w-full md:w-[250px] md:sticky md:top-20 lg:w-[350px] lg:top-24 lg:sticky h-fit mt-10">
+      <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-200 dark:bg-background">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-white">
+          💳 Payment Summary
+        </h2>
+
+        <div className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
           <div className="flex justify-between">
-            <p className="text-gray-500 ">Subtotal</p>
-            <p className="font-semibold">{subTotal}</p>
+            <span>Subtotal</span>
+            <span className="font-medium text-gray-800 dark:text-white">${subTotal}</span>
           </div>
           <div className="flex justify-between">
-            <p className="text-gray-500 ">Discount</p>
-            <p className="font-semibold">{0}</p>
+            <span>Discount</span>
+            <span>$0</span>
           </div>
           <div className="flex justify-between">
-            <p className="text-gray-500 ">Shipment Cost</p>
-            <p className="font-semibold">{0}</p>
+            <span>Shipment</span>
+            <span>$0</span>
+          </div>
+          <hr className="border-gray-300 dark:border-gray-700" />
+          <div className="flex justify-between text-lg font-semibold text-gray-900 dark:text-white">
+            <span>Total</span>
+            <span>${subTotal}</span>
           </div>
         </div>
-        <div className="flex justify-between mt-10 mb-5">
-          <p className="text-gray-500 ">Grand Total</p>
-          <p className="font-semibold">{subTotal}</p>
-        </div>
+
         <Button
           onClick={handlePaymentProceed}
-          className="bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700"
+          className="mt-8 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl hover:from-blue-700 hover:to-indigo-700 flex items-center justify-center gap-2 transition-all duration-300"
         >
+          <FaCreditCard />
           Go to Payment
         </Button>
       </div>

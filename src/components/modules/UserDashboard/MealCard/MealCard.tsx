@@ -5,7 +5,7 @@ import EachCard from "./EachCard";
 import { Button } from "@/components/ui/button";
 import { useAppSelector } from "@/redux/hooks";
 import { orderedProductsSelector } from "@/redux/features/cartSlice";
-import Link from "next/link"; // ✅ Next.js Link Import
+import Link from "next/link";
 
 const MealCard = ({ products }: any) => {
   const productsNO = useAppSelector(orderedProductsSelector);
@@ -28,7 +28,7 @@ const MealCard = ({ products }: any) => {
         </Link>
       </div>
 
-      <div className="flex gap-8">
+      <div className="flex flex-col lg:flex-row gap-8">
         <div>
           <Filtered />
         </div>

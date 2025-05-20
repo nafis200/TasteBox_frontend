@@ -68,7 +68,6 @@ export default function Filtered() {
         <p className="text-sm mt-2">Selected Price: ${price[0]}</p>
       </div>
 
-      {/* Dietary Filter */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold mb-4">Dietary</h2>
         <RadioGroup className="space-y-2">
@@ -86,8 +85,6 @@ export default function Filtered() {
           ))}
         </RadioGroup>
       </div>
-
-      {/* Cuisine Filter */}
       <div className="mb-6">
         <h2 className="text-lg font-semibold mb-4">Cuisine</h2>
         <RadioGroup className="space-y-2">

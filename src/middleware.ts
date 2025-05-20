@@ -46,6 +46,7 @@ export const config = {
       "/admin/:page",
       "/user/dashboard",
       "/user/dashboard/:page",
-      "/cart"
+      "/mealcard"
+      // "/cart"
     ],
   };

@@ -34,7 +34,7 @@ const data = {
           url: "/admin/dashboard",
         },
         {
-          title: "Update Meal",
+          title: "ProfilePage",
           url: "/admin/dashboard/home",
         },
       ],
@@ -88,9 +88,25 @@ const data = {
     },
   ],
   navMainuser: [
+     {
+      title: "Dashboard Home",
+      url: "#",
+      icon: Home,
+      items: [
+        {
+          title: "Home page",
+          url: "/user/dashboard",
+        },
+        {
+          title: "ProfilePage",
+          url: "/user/dashboard/home",
+        },
+      ],
+      isActive: true,
+    },
     {
       title: "Meal Options",
-      url: "/user/dashboard",
+      url: "#",
       icon: Coffee,
       isActive: true,
       items: [

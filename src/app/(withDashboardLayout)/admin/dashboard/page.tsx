@@ -1,9 +1,12 @@
-import DashboardHome from "@/components/modules/UserDashboard/DashboardHome";
+import Graph from "@/components/modules/graph/Graph";
+import { getCouponGraphData } from "@/services/Cupon";
 
-export default function AdminDashboard() {
+export default async function AdminDashboard() {
+  const results = await getCouponGraphData();     
+
   return (
-    <section className="p-6">
-      <DashboardHome />
-    </section>
+    <div>
+      <Graph result={results?.data} />
+    </div>
   );
 }

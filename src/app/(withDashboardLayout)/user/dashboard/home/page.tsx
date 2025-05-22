@@ -1,6 +1,6 @@
 import DashboardHome from "@/components/modules/UserDashboard/DashboardHome";
 
-const HomePages = async () => {
+const UserHomePages = async () => {
   return (
     <section className="p-6">
       <DashboardHome />
@@ -8,4 +8,4 @@ const HomePages = async () => {
   );
 };
 
-export default HomePages;
+export default UserHomePages;

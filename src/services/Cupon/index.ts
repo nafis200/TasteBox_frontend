@@ -48,6 +48,19 @@ export const getCouponGraphData = async () => {
   }
 };
 
+export const getCoupon= async (name:string) => {
+  try {
+    const res = await fetch(`${BASE_URL}/cupon/find?name=${name}`, {
+      method: "GET",
+    });
+    const result = await res.json();
+    return result;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    return Error(error.message || error);
+  }
+};
+
 export const getAllCoupons = async (page?: string, limit?: string) => {
   try {
     const res = await fetch(

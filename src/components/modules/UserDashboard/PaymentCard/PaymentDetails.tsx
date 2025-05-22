@@ -2,17 +2,43 @@
 import { Button } from "@/components/ui/button";
 import { subTotalSelector } from "@/redux/features/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
+import { getCoupon } from "@/services/Cupon";
 import { useRouter } from "next/navigation";
 
-import React from "react";
+import React, { useState } from "react";
 import { FaCreditCard } from "react-icons/fa";
+
+
+import { toast } from "sonner";
 
 const PaymentDetails = () => {
   const subTotal = useAppSelector(subTotalSelector);
   const route = useRouter();
+  const [couponCode, setCouponCode] = useState("");
 
   const handlePaymentProceed = async () => {
-     route.push('/checkout')
+    route.push("/checkout");
+  };
+
+  const handleAddCoupon = async () => {
+    if (!couponCode.trim()) {
+      toast.error("Please enter a coupon code");
+      return;
+    }
+    try {
+      const result = await getCoupon(couponCode.trim());
+      console.log(result)
+      if (result && result.success) {
+        toast.success(`Coupon Applied Successfully`);
+       
+      } else {
+        toast.error("Invalid coupon");
+      }
+      setCouponCode("")
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (error: any) {
+      toast.error(error.message || "Failed to fetch coupon");
+    }
   };
 
   return (
@@ -42,9 +68,22 @@ const PaymentDetails = () => {
           </div>
         </div>
 
+        <div className="flex mt-8">
+          <input
+            type="text"
+            value={couponCode}
+            onChange={(e) => setCouponCode(e.target.value)}
+            placeholder="Enter coupon"
+            className="flex-grow px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-background dark:border-gray-600 dark:text-white"
+          />
+          <Button onClick={handleAddCoupon} className="whitespace-nowrap w-[90px] p-2">
+            Add Coupon
+          </Button>
+        </div>
+
         <Button
           onClick={handlePaymentProceed}
-          className="mt-8 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl hover:from-blue-700 hover:to-indigo-700 flex items-center justify-center gap-2 transition-all duration-300"
+          className="mt-6 w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 rounded-xl hover:from-blue-700 hover:to-indigo-700 flex items-center justify-center gap-2 transition-all duration-300"
         >
           <FaCreditCard />
           Go to Payment

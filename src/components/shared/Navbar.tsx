@@ -17,7 +17,7 @@ const mealItems = [
 ];
 
 export default function Navbar() {
-  const { user, setIsLoading } = useUser();
+  const { user, setIsLoading} = useUser();
   const pathname = usePathname();
   const router = useRouter();
 
@@ -44,6 +44,8 @@ export default function Navbar() {
       router.push("/");
     }
   };
+
+  
 
   return (
     <header className="border-b bg-background w-full sticky top-0 z-10 p-2 bg-gray-300">

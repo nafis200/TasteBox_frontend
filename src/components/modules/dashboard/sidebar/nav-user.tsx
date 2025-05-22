@@ -26,21 +26,19 @@ import {
 } from "@/components/ui/sidebar"
 import { usePathname, useRouter } from "next/navigation"
 import { useUser } from "@/context/UserContext"
-import { logout } from "@/services/AuthService"
+
 
 export function NavUser() {
   const { isMobile } = useSidebar()
-  const { user, setIsLoading } = useUser();
+  const { user} = useUser();
 
   const router = useRouter();
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const pathname = usePathname();
-  const handleLogout = () => {
-    logout();
-    setIsLoading(true);
-      router.push("/");
-    
-  };
+   const handleLogOut = () => {
+        router.push("/");
+      
+    };
 
   return (
     <SidebarMenu>
@@ -85,9 +83,9 @@ export function NavUser() {
             </div>
           </DropdownMenuLabel>
 
-          <DropdownMenuItem onClick={() => handleLogout()}>
+          <DropdownMenuItem onClick={handleLogOut}>
             <LogOut />
-            Log out
+             Go to Home
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

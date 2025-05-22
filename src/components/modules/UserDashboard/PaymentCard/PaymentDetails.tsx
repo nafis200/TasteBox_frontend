@@ -1,29 +1,18 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { clearCart, subTotalSelector } from "@/redux/features/cartSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { PaymentUser } from "@/services/payment";
+import { subTotalSelector } from "@/redux/features/cartSlice";
+import { useAppSelector } from "@/redux/hooks";
+import { useRouter } from "next/navigation";
+
 import React from "react";
 import { FaCreditCard } from "react-icons/fa";
 
 const PaymentDetails = () => {
   const subTotal = useAppSelector(subTotalSelector);
-  const dispatch = useAppDispatch();
-  const paymentDetails = {
-    totalPrice: 200,
-    name: "Nafis",
-    phone_number: "01922208141",
-    address: "Tongi",
-    email: "n@gmail.com",
-  };
+  const route = useRouter();
 
   const handlePaymentProceed = async () => {
-    const result = await PaymentUser(paymentDetails);
-
-    if (result?.data) {
-      dispatch(clearCart());
-      window.location.href = result.data;
-    }
+     route.push('/checkout')
   };
 
   return (

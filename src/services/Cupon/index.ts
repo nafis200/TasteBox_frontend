@@ -39,7 +39,6 @@ export const getCouponGraphData = async () => {
   try {
     const res = await fetch(`${BASE_URL}/cupon/graph`, {
       method: "GET",
-      next: { tags: ["CouponGraph"] },
     });
     const result = await res.json();
     return result;

@@ -35,7 +35,7 @@ const data = {
         },
         {
           title: "Update Meal",
-          url: "/admin/dashboard/updatemeal",
+          url: "/admin/dashboard/home",
         },
       ],
       isActive: true,

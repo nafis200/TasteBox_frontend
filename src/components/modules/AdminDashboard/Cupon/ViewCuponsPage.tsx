@@ -16,13 +16,13 @@ import { deleteCoupon } from "@/services/Cupon";
 const CouponsTable = ({ coupons, meta }: { coupons: any[]; meta: IMeta }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  const [rows, setRows] = useState<any[]>(coupons);
+  
 
   const handleDelete = async (id: string) => {
     try {
       await deleteCoupon(id);
       toast.success("Coupon deleted successfully");
-      setRows(rows.filter((c) => c._id !== id));
+
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       toast.error("Failed to delete coupon");
@@ -88,7 +88,7 @@ const CouponsTable = ({ coupons, meta }: { coupons: any[]; meta: IMeta }) => {
   return (
     <div>
       <h1 className="text-xl font-bold mb-4">Manage Coupons</h1>
-      <NMTable columns={columns} data={rows} />
+      <NMTable columns={columns} data={coupons} />
       <TablePagination totalPage={meta?.totalPage} />
     </div>
   );

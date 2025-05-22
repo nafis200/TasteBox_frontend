@@ -1,18 +1,29 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { subTotalSelector } from "@/redux/features/cartSlice";
+import {
+  disabledButton,
+  discount,
+  removeButton,
+  setDiscount,
+  subTotalSelector,
+  totalAfterDiscountSelector,
+} from "@/redux/features/cartSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { getCoupon } from "@/services/Cupon";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
 import { FaCreditCard } from "react-icons/fa";
-
+import { useDispatch } from "react-redux";
 
 import { toast } from "sonner";
 
 const PaymentDetails = () => {
   const subTotal = useAppSelector(subTotalSelector);
+  const disabled = useAppSelector(disabledButton);
+  const Discount = useAppSelector(discount);
+  const AfterDiscount = useAppSelector(totalAfterDiscountSelector);
+  const dispatch = useDispatch();
   const route = useRouter();
   const [couponCode, setCouponCode] = useState("");
 
@@ -27,15 +38,18 @@ const PaymentDetails = () => {
     }
     try {
       const result = await getCoupon(couponCode.trim());
-      console.log(result)
+
+      const CouponCode = Number(result?.data?.code);
+
       if (result && result.success) {
         toast.success(`Coupon Applied Successfully`);
-       
+        dispatch(removeButton());
+        dispatch(setDiscount(CouponCode));
       } else {
         toast.error("Invalid coupon");
       }
-      setCouponCode("")
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      setCouponCode("");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       toast.error(error.message || "Failed to fetch coupon");
     }
@@ -51,20 +65,26 @@ const PaymentDetails = () => {
         <div className="space-y-4 text-sm text-gray-600 dark:text-gray-300">
           <div className="flex justify-between">
             <span>Subtotal</span>
-            <span className="font-medium text-gray-800 dark:text-white">${subTotal}</span>
+            <span className="font-medium text-gray-800 dark:text-white">
+              ${subTotal}
+            </span>
           </div>
           <div className="flex justify-between">
             <span>Discount</span>
-            <span>$0</span>
+            <span>${Discount}%</span>
           </div>
           <div className="flex justify-between">
             <span>Shipment</span>
             <span>$0</span>
           </div>
+          <div className="flex justify-between">
+            <span>Discount price</span>
+            <span>${subTotal - AfterDiscount}</span>
+          </div>
           <hr className="border-gray-300 dark:border-gray-700" />
           <div className="flex justify-between text-lg font-semibold text-gray-900 dark:text-white">
             <span>Total</span>
-            <span>${subTotal}</span>
+            <span>${AfterDiscount}</span>
           </div>
         </div>
 
@@ -76,7 +96,11 @@ const PaymentDetails = () => {
             placeholder="Enter coupon"
             className="flex-grow px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-background dark:border-gray-600 dark:text-white"
           />
-          <Button onClick={handleAddCoupon} className="whitespace-nowrap w-[90px] p-2">
+          <Button
+            disabled={!disabled}
+            onClick={handleAddCoupon}
+            className="whitespace-nowrap w-[90px] p-2"
+          >
             Add Coupon
           </Button>
         </div>

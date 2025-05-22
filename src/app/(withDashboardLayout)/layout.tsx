@@ -12,6 +12,7 @@ export default function DashboardLayout({
     children: React.ReactNode;
   }) {
   return (
+    <>
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
@@ -23,5 +24,6 @@ export default function DashboardLayout({
         <div className="p-4 pt-0 min-h-screen">{children}</div>
       </SidebarInset>
     </SidebarProvider>
+    </>
   )
 }

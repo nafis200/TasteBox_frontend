@@ -26,8 +26,18 @@ const data = {
   navMain: [
     {
       title: "Dashboard Home",
-      url: "/admin/dashboard",
+      url: "#",
       icon: Home,
+      items: [
+        {
+          title: "Home page",
+          url: "/admin/dashboard",
+        },
+        {
+          title: "Update Meal",
+          url: "/admin/dashboard/updatemeal",
+        },
+      ],
       isActive: true,
     },
     {

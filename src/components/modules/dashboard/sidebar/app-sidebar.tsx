@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
-  Bot,
-  SquareTerminal,
-} from "lucide-react"
-
+  Home,
+  Coffee,
+  ClipboardList,
+  Tag,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -15,18 +16,24 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-import { NavMain } from "./nav-main"
-import { NavUser } from "./nav-user"
-import Link from "next/link"
-import { useUser } from "@/context/UserContext"
-// This is sample data.
+} from "@/components/ui/sidebar";
+import { NavMain } from "./nav-main";
+import { NavUser } from "./nav-user";
+import Link from "next/link";
+import { useUser } from "@/context/UserContext";
+
 const data = {
   navMain: [
     {
-      title: "Meal Options",
+      title: "Dashboard Home",
       url: "/admin/dashboard",
-      icon: SquareTerminal,
+      icon: Home,
+      isActive: true,
+    },
+    {
+      title: "Meal Options",
+      url: "#",
+      icon: Coffee,
       isActive: true,
       items: [
         {
@@ -34,7 +41,7 @@ const data = {
           url: "/admin/dashboard/createmeal",
         },
         {
-          title: "Updated Meal",
+          title: "Update Meal",
           url: "/admin/dashboard/updatemeal",
         },
       ],
@@ -42,6 +49,7 @@ const data = {
     {
       title: "Order Options",
       url: "#",
+      icon: ClipboardList,
       items: [
         {
           title: "View Order",
@@ -52,22 +60,36 @@ const data = {
           url: "/admin/dashboard/paymentorder",
         },
       ],
-      icon: Bot,
+    },
+    {
+      title: "Cupon Options",
+      url: "#",
+      icon: Tag,
+      items: [
+        {
+          title: "Create Cupon",
+          url: "/admin/dashboard/cupon/create",
+        },
+        {
+          title: "Delete Cupon",
+          url: "/admin/dashboard/cupon/viewcoupon",
+        },
+      ],
     },
   ],
   navMainuser: [
     {
       title: "Meal Options",
       url: "/user/dashboard",
-      icon: SquareTerminal,
+      icon: Coffee,
       isActive: true,
       items: [
         {
-          title: "prefer Meal",
+          title: "Prefer Meal",
           url: "/user/dashboard/prefermeal",
         },
         {
-          title: "View and update",
+          title: "View and Update",
           url: "/user/dashboard/preferviewmeal",
         },
       ],
@@ -75,24 +97,24 @@ const data = {
     {
       title: "Order Options",
       url: "#",
+      icon: ClipboardList,
       items: [
         {
-          title: "Payment Order details",
+          title: "Payment Order Details",
           url: "/user/dashboard/preferpaymentorder",
         },
         {
-          title: "View Order details",
+          title: "View Order Details",
           url: "/user/dashboard/prefervieworder",
         },
       ],
-      icon: Bot,
     },
   ],
-  
-}
+};
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const { user} = useUser();
+  const { user } = useUser();
+
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
@@ -108,14 +130,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
       <SidebarContent>
-        {
-           user?.jwtPayload?.role === 'user' ? <NavMain items={data.navMainuser} /> : <NavMain items={data.navMain} />
-        }
+        {user?.jwtPayload?.role === "user" ? (
+          <NavMain items={data.navMainuser} />
+        ) : (
+          <NavMain items={data.navMain} />
+        )}
       </SidebarContent>
+
       <SidebarFooter>
         <NavUser />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

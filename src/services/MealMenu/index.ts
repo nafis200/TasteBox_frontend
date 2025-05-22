@@ -1,29 +1,32 @@
-"use server"
+"use server";
 
 import type { FieldValues } from "react-hook-form";
 import { revalidateTag } from "next/cache";
 
-
 export const CreateMealMenu = async (userData: FieldValues) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/providers/menu`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }
+    );
 
     const result = await res.json();
     revalidateTag("Menu");
     return result;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error);
   }
 };
 export const getAllMenu = async (
-  query?: { [key: string]: string | string[] | undefined }
+  query?: { [key: string]: string | string[] | undefined },
+ 
 ) => {
   const params = new URLSearchParams();
 
@@ -40,6 +43,10 @@ export const getAllMenu = async (
   if (query?.rating) {
     params.append("rating", query?.rating.toString());
   }
+  if (query?.limit) params.append("limit", query?.limit.toString());
+  if (query?.page) params.append("page", query?.page?.toString());
+
+  
 
   try {
     const res = await fetch(
@@ -52,7 +59,7 @@ export const getAllMenu = async (
     );
     const data = await res.json();
     return data;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error.message);
   }
@@ -60,13 +67,16 @@ export const getAllMenu = async (
 
 export const getSingleMeal = async (id: string) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/orders/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      cache: "no-store", 
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/providers/orders/${id}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
       throw new Error("Failed to fetch meal");
@@ -75,51 +85,54 @@ export const getSingleMeal = async (id: string) => {
     const result = await res.json();
     return result.data[0];
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error.message || "Something went wrong");
   }
 };
 
-
-
-export const UpdateMeal = async (userData: FieldValues,id:string) => {
+export const UpdateMeal = async (userData: FieldValues, id: string) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/providers/menu/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }
+    );
 
     const result = await res.json();
     revalidateTag("Menu");
     return result;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error);
   }
 };
-export const ResponseOrder = async (userData: FieldValues,id:string) => {
+export const ResponseOrder = async (userData: FieldValues, id: string) => {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/customers/response/${id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userData),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_API}/customers/response/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      }
+    );
 
     const result = await res.json();
     revalidateTag("vieworders");
     return result;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error);
   }
 };
-
 
 export const getAllProducts = async (
   page?: string,
@@ -148,17 +161,12 @@ export const getAllProducts = async (
     );
     const data = await res.json();
     return data;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error.message);
   }
 };
-export const getAllOrder = async (
-  page?: string,
-  limit?: string,
-) => {
- 
-
+export const getAllOrder = async (page?: string, limit?: string) => {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_BASE_API}/customers/orders?limit=${limit}&page=${page}`,
@@ -170,28 +178,20 @@ export const getAllOrder = async (
     );
     const data = await res.json();
     return data;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error.message);
   }
 };
-export const PaymentOrder = async (
-  page?: string,
-  limit?: string,
-) => {
- 
-
+export const PaymentOrder = async (page?: string, limit?: string) => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BASE_API}/payment/Surjopay?limit=${limit}&page=${page}`,
+      `${process.env.NEXT_PUBLIC_BASE_API}/payment/Surjopay?limit=${limit}&page=${page}`
     );
     const data = await res.json();
     return data;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     return Error(error.message);
   }
 };
-
-
-

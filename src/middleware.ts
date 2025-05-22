@@ -4,8 +4,8 @@ import { NextRequest, NextResponse } from "next/server";
 const authRoutes = ["/login", "/register"];
 
 const roleBasedPrivateRoutes = {
-  user: [/^\/user/, /^\/profile/,/^\/cart/],
-  admin: [/^\/admin/,/^\/profile/,/^\/cart/],
+  user: [/^\/user/, /^\/profile/,/^\/cart/,/^\/mealcard/],
+  admin: [/^\/admin/,/^\/profile/,/^\/cart/,/^\/mealcard/],
 };
 // 
 

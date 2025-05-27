@@ -36,14 +36,14 @@ export default function Filtered() {
   };
 
   return (
-    <div className="p-6 bg-white rounded-lg">
+    <div className="p-6 rounded-lg dark:bg-dark dark:text-white">
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-xl font-semibold">Filter</h2>
         {searchParams.toString().length > 0 && (
           <Button
             onClick={() => router.push(`${pathname}`, { scroll: false })}
             size="sm"
-            className="bg-black hover:bg-gray-700 ml-5"
+            className="bg-black hover:bg-gray-700 ml-5 dark:bg-white"
           >
             Clear Filters
           </Button>
@@ -51,7 +51,7 @@ export default function Filtered() {
       </div>
 
       <div className="mb-6">
-        <h2 className="text-lg font-semibold mb-4">Price</h2>
+        <h2 className="text-lg font-semibold mb-4 dark:bg-dark dark:text-white">Price</h2>
         <div className="flex items-center justify-between text-sm mb-2">
           <span>$0</span>
           <span>$500000</span>
@@ -63,9 +63,9 @@ export default function Filtered() {
             setPrice(value);
             handleSearchQuery("price", value[0]);
           }}
-          className="w-full"
+          className="w-full accent-green-600"
         />
-        <p className="text-sm mt-2">Selected Price: ${price[0]}</p>
+        <p className="text-sm mt-2 dark:bg-dark dark:text-white">Selected Price: ${price[0]}</p>
       </div>
 
       <div className="mb-6">
@@ -103,7 +103,7 @@ export default function Filtered() {
         </RadioGroup>
       </div>
       <div className="mb-6">
-        <h2 className="text-lg font-semibold mb-4">Rating</h2>
+        <h2 className="text-lg font-semibold mb-4 dark:bg-dark dark:text-white">Rating</h2>
         <RadioGroup className="space-y-3">
           {[5, 4, 3, 2, 1].map((rating) => (
             <div key={rating} className="flex items-center space-x-2">

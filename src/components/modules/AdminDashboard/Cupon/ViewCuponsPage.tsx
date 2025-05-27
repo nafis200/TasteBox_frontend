@@ -16,7 +16,6 @@ import { deleteCoupon } from "@/services/Cupon";
 const CouponsTable = ({ coupons, meta }: { coupons: any[]; meta: IMeta }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  
 
   const handleDelete = async (id: string) => {
     try {
@@ -40,6 +39,7 @@ const CouponsTable = ({ coupons, meta }: { coupons: any[]; meta: IMeta }) => {
           }
           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
           aria-label="Select all"
+          className="dark:ring-offset-gray-900 dark:ring-gray-600"
         />
       ),
       cell: ({ row }) => (
@@ -55,6 +55,7 @@ const CouponsTable = ({ coupons, meta }: { coupons: any[]; meta: IMeta }) => {
             row.toggleSelected(!!value);
           }}
           aria-label="Select row"
+          className="dark:ring-offset-gray-900 dark:ring-gray-600"
         />
       ),
       enableSorting: false,
@@ -63,12 +64,12 @@ const CouponsTable = ({ coupons, meta }: { coupons: any[]; meta: IMeta }) => {
     {
       accessorKey: "coupon_name",
       header: "Coupon Name",
-      cell: ({ row }) => <span>{row.original.coupon_name}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-200">{row.original.coupon_name}</span>,
     },
     {
       accessorKey: "code",
       header: "Code",
-      cell: ({ row }) => <span>{row.original.code}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-200">{row.original.code}</span>,
     },
     {
       id: "actions",
@@ -78,16 +79,17 @@ const CouponsTable = ({ coupons, meta }: { coupons: any[]; meta: IMeta }) => {
           variant="destructive"
           size="icon"
           onClick={() => handleDelete(row.original._id)}
+          className="dark:bg-red-700 dark:hover:bg-red-600"
         >
-          <Trash2 className="h-4 w-4" />
+          <Trash2 className="h-4 w-4 dark:text-gray-100" />
         </Button>
       ),
     },
   ];
 
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">Manage Coupons</h1>
+    <div className="dark:bg-gray-900 dark:text-gray-100">
+      <h1 className="text-xl font-bold mb-4 dark:text-gray-100">Manage Coupons</h1>
       <NMTable columns={columns} data={coupons} />
       <TablePagination totalPage={meta?.totalPage} />
     </div>

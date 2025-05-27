@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { Utensils,Tag } from "lucide-react";
+import { Utensils, Tag } from "lucide-react";
 // import { Utensils,Tag,Leaf, Star, } from "lucide-react";
 import { useAppDispatch } from "@/redux/hooks";
 import { addProduct } from "@/redux/features/cartSlice";
@@ -27,7 +27,7 @@ const EachCard = ({ product }: any) => {
   return (
     <Card
       key={product._id}
-      className="w-full max-w-xs p-4 bg-white shadow-md rounded-lg transition-all hover:shadow-xl"
+      className="w-full max-w-xs p-4 bg-background text-foreground shadow-md rounded-lg transition-all hover:shadow-lg dark:bg-gray-800 dark:shadow-gray-700"
     >
       <Image
         src={product.image}
@@ -37,12 +37,12 @@ const EachCard = ({ product }: any) => {
         className="w-full h-48 object-cover rounded-md"
       />
       <CardContent className="pt-4">
-        <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
-          <Tag size={18} className="text-blue-500" />
+        <h3 className="text-xl font-semibold flex items-center gap-2 text-primary dark:text-primary">
+          <Tag size={18} className="text-blue-500 dark:text-blue-400" />
           {product.name}
         </h3>
-        <p className="text-gray-500 flex items-center gap-2">
-          <Utensils size={16} className="text-green-500" /> {product.cuisine}
+        <p className="text-muted-foreground flex items-center gap-2 dark:text-gray-300">
+          <Utensils size={16} className="text-green-500 dark:text-green-400" /> {product.cuisine}
         </p>
         {/* <div className="mt-2">
           <p className="text-sm font-semibold flex items-center gap-2">
@@ -60,11 +60,11 @@ const EachCard = ({ product }: any) => {
           <Star size={18} fill="orange" stroke="orange" />
           <span className="ml-2 text-sm text-gray-600">{product.rating}</span>
         </div> */}
-        <p className="mt-2 text-gray-800 font-semibold">${product.price.toFixed(2)}</p>
+        <p className="mt-2 font-semibold text-foreground dark:text-gray-100">${product.price.toFixed(2)}</p>
         <div className="mt-4 flex gap-3">
           <Button
             onClick={() => handleAddProduct(product)}
-            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white flex items-center justify-center gap-2"
+            className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 dark:hover:bg-primary/80 flex items-center justify-center gap-2"
           >
             <ShoppingCart size={16} />
             Add to Cart
@@ -72,7 +72,7 @@ const EachCard = ({ product }: any) => {
           <Button
             variant="outline"
             onClick={handleViewDetails}
-            className="flex-1 border-blue-600 text-blue-600 hover:bg-blue-50 flex items-center justify-center gap-2"
+            className="flex-1 border-primary text-primary hover:bg-primary/10 dark:hover:bg-primary/20 flex items-center justify-center gap-2"
           >
             <Eye size={16} />
             View

@@ -36,19 +36,20 @@ const CreateCuponPage = () => {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-50">
-      <Card className="w-full max-w-md shadow-lg border border-gray-200">
+    <div className="flex justify-center items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+      <Card className="w-full max-w-md shadow-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800">
         <CardContent className="p-6">
-          <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800">
+          <h2 className="text-2xl font-semibold mb-6 text-center text-gray-800 dark:text-gray-100">
             Create New Coupon
           </h2>
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
             <div>
-              <Label htmlFor="coupon_name">Coupon Name</Label>
+              <Label htmlFor="coupon_name" className="dark:text-gray-300">Coupon Name</Label>
               <Input
                 id="coupon_name"
                 {...register("coupon_name", { required: "Coupon name is required" })}
                 placeholder="Enter coupon name"
+                className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
               />
               {errors.coupon_name && (
                 <p className="text-red-500 text-sm mt-1">
@@ -57,9 +58,8 @@ const CreateCuponPage = () => {
               )}
             </div>
 
-            {/* Code */}
             <div>
-              <Label htmlFor="code">Coupon Code (1 - 100)</Label>
+              <Label htmlFor="code" className="dark:text-gray-300">Coupon Code (1 - 100)</Label>
               <Input
                 id="code"
                 type="number"
@@ -70,13 +70,13 @@ const CreateCuponPage = () => {
                   max: { value: 100, message: "Code must not be greater than 100" },
                 })}
                 placeholder="Enter code"
+                className="dark:bg-gray-700 dark:border-gray-600 dark:text-gray-100"
               />
               {errors.code && (
                 <p className="text-red-500 text-sm mt-1">{errors.code.message}</p>
               )}
             </div>
 
-            {/* Submit Button */}
             <Button
               type="submit"
               disabled={isSubmitting}

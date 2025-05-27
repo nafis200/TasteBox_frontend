@@ -64,25 +64,29 @@ const UpdateMeal = ({ products, meta }: { products: IMeal[]; meta: IMeta }) => {
       accessorKey: "name",
       header: "Meal Name",
       cell: ({ row }) => (
-        <span className="font-medium">{row.original.name}</span>
+        <span className="font-medium dark:text-gray-200">{row.original.name}</span>
       ),
     },
     {
       accessorKey: "cuisine",
       header: "Cuisine",
-      cell: ({ row }) => <span>{row.original.cuisine}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.cuisine}</span>,
     },
     {
       accessorKey: "rating",
       header: "Rating",
-      cell: ({ row }) => <span>{row.original.rating}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.rating}</span>,
     },
     {
       accessorKey: "availability",
       header: "Availability",
       cell: ({ row }) => (
         <span
-          className={row.original.availability ? "text-green-600" : "text-red-600"}
+          className={
+            row.original.availability
+              ? "text-green-600 dark:text-green-400"
+              : "text-red-600 dark:text-red-400"
+          }
         >
           {row.original.availability ? "Available" : "Unavailable"}
         </span>
@@ -91,20 +95,25 @@ const UpdateMeal = ({ products, meta }: { products: IMeal[]; meta: IMeta }) => {
     {
       accessorKey: "portion_size",
       header: "Portion Size",
-      cell: ({ row }) => <span>{row.original.portion_size}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.portion_size}</span>,
     },
     {
       accessorKey: "price",
       header: "Price ($)",
-      cell: ({ row }) => <span>{row.original.price.toFixed(2)}</span>,
+      cell: ({ row }) => (
+        <span className="dark:text-gray-300">{row.original.price.toFixed(2)}</span>
+      ),
     },
     {
       accessorKey: "action",
       header: "Action",
       cell: ({ row }) => (
-        <Button size="sm" variant="outline" onClick={() => router.push(
-          `/admin/dashboard/updatemeal/${row.original._id}`
-        )}>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={() => router.push(`/admin/dashboard/updatemeal/${row.original._id}`)}
+          className="dark:border-gray-600 dark:text-gray-200 dark:hover:bg-gray-700"
+        >
           Update
         </Button>
       ),
@@ -112,8 +121,8 @@ const UpdateMeal = ({ products, meta }: { products: IMeal[]; meta: IMeta }) => {
   ];
 
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">Manage Meals</h1>
+    <div className="dark:bg-gray-900 dark:text-gray-100 min-h-screen p-4 rounded-md">
+      <h1 className="text-xl font-bold mb-4 dark:text-gray-100">Manage Meals</h1>
       <NMTable columns={columns} data={products || []} />
       <TablePagination totalPage={meta?.totalPage} />
     </div>

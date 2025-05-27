@@ -18,6 +18,7 @@ import Link from "next/link";
 import { loginUser } from "@/services/AuthService";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useUser } from "@/context/UserContext";
+import { Mail, Lock } from "lucide-react";
 
 const LoginForm = () => {
   const formSchema = z.object({
@@ -46,7 +47,7 @@ const LoginForm = () => {
   const redirect = searchParams.get("redirectPath");
   const router = useRouter();
 
-  const AdminCredrentails = async () => {
+  const AdminCredentials = async () => {
     const data = {
       email: "admin@gmail.com",
       password: "123456",
@@ -61,7 +62,7 @@ const LoginForm = () => {
     }
   };
 
-  const UserCredential = async () => {
+  const UserCredentials = async () => {
     const data = {
       email: "nafis@gmail.com",
       password: "123456",
@@ -86,6 +87,7 @@ const LoginForm = () => {
       } else {
         toast.error(res?.message);
       }
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.error(err);
     }
@@ -93,16 +95,16 @@ const LoginForm = () => {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-gray-100 bg-cover bg-center"
+      className="flex items-center justify-center min-h-screen bg-cover bg-center relative"
       style={{
         backgroundImage:
-          "url('https://img.freepik.com/free-photo/abstract-textured-backgound_1258-30484.jpg?t=st=1740852113~exp=1740855713~hmac=3664be79b4588f692d3cc44508da2613a9183efd32bf20f521420951441af953&w=900')",
+          "linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.postimg.cc/rF5fBgKn/04-2.jpg')",
       }}
     >
-      <div className="border-2 border-gray-300 bg-white shadow-lg rounded-xl max-w-md w-full p-6 backdrop-blur-md bg-opacity-90">
+      <div className="border border-white/20 shadow-xl rounded-xl max-w-md w-full p-6 backdrop-blur-md bg-white/10 dark:bg-white/10 text-white">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-semibold">Login</h1>
-          <p className="text-gray-600 text-sm">
+          <p className="text-sm text-white/80">
             Welcome back! Please login to your account.
           </p>
         </div>
@@ -116,11 +118,14 @@ const LoginForm = () => {
                 <FormItem>
                   <FormLabel>Email or Phone</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="Enter your email or phone"
-                      {...field}
-                      className="rounded-lg"
-                    />
+                    <div className="relative">
+                      <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/80" />
+                      <Input
+                        {...field}
+                        placeholder="Enter your email or phone"
+                        className="pl-10 pr-4 py-2 rounded-lg bg-white/20 backdrop-blur-md text-white/90 placeholder:text-white/50 border border-white/30 focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -133,12 +138,15 @@ const LoginForm = () => {
                 <FormItem>
                   <FormLabel>Password</FormLabel>
                   <FormControl>
-                    <Input
-                      type="password"
-                      placeholder="Enter your password"
-                      {...field}
-                      className="rounded-lg"
-                    />
+                    <div className="relative">
+                      <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-white/80" />
+                      <Input
+                        {...field}
+                        type="password"
+                        placeholder="Enter your password"
+                        className="pl-10 pr-4 py-2 rounded-lg bg-white/20 backdrop-blur-md text-white/90 placeholder:text-white/50 border border-white/30 focus:ring-2 focus:ring-primary"
+                      />
+                    </div>
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -157,22 +165,22 @@ const LoginForm = () => {
           <Button
             type="button"
             variant="outline"
-            onClick={AdminCredrentails}
-            className="w-full"
+            onClick={AdminCredentials}
+            className="w-full bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30"
           >
             Login as Admin
           </Button>
           <Button
             type="button"
             variant="outline"
-            onClick={UserCredential}
-            className="w-full"
+            onClick={UserCredentials}
+            className="w-full bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30"
           >
             Login as User
           </Button>
         </div>
 
-        <p className="text-sm text-gray-600 text-center mt-4">
+        <p className="text-sm text-white/80 text-center mt-4">
           Don&#39;t have an account?
           <Link
             href="/register"

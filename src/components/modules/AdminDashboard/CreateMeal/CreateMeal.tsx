@@ -89,11 +89,11 @@ const CreateMeal = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-200">
-      <div className="border-2 border-gray-300 bg-white shadow-lg rounded-xl max-w-2xl lg:max-w-7xl w-full p-6">
+    <div className="flex items-center justify-center min-h-screen bg-background text-foreground">
+      <div className="border border-border bg-card shadow-lg rounded-xl max-w-2xl lg:max-w-7xl w-full p-6">
         <div className="text-center mb-6">
           <h1 className="text-2xl font-semibold">Add Meal</h1>
-          <p className="text-gray-600 text-sm">
+          <p className="text-muted-foreground text-sm">
             Fill out the details below to add a meal.
           </p>
         </div>
@@ -239,7 +239,8 @@ const CreateMeal = () => {
             />
             <Button
               type="submit"
-              className="w-full bg-primary text-white py-2 rounded-lg hover:bg-opacity-90"
+              className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary/90"
+              disabled={isSubmitting}
             >
               {isSubmitting ? "Adding..." : "Add Meal"}
             </Button>

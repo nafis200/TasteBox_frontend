@@ -109,10 +109,10 @@ const { user } = useUser();
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-200">
-    <div className="border-2 border-gray-300 bg-white shadow-lg rounded-xl max-w-2xl lg:max-w-7xl w-full p-6">
+    <div className="border-2 border-gray-300 dark:bg-black dark:text-white bg-white shadow-lg rounded-xl max-w-2xl lg:max-w-7xl w-full p-6">
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-semibold">Meal Preference</h1>
-        <p className="text-gray-600 text-sm">Fill out the details below to add a meal.</p>
+        <h1 className="text-2xl font-semibold dark:bg-black dark:text-white">Meal Preference</h1>
+        <p className="text-gray-600 text-sm dark:bg-black dark:text-white">Fill out the details below to add a meal.</p>
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

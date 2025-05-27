@@ -7,11 +7,14 @@ import ShoppingSection from "@/components/modules/ShoppingSections/ShoppingSecti
 const HomePage = () => {
   return (
     <div>
-      <Banner/>
-      <MealCard/>
-      <Menu/>
-      <MealFaq/>
-      <ShoppingSection/>
+      <div className="space-y-16">
+  <Banner />
+  <MealCard />
+  <Menu />
+  <MealFaq />
+  <ShoppingSection />
+</div>
+
     </div>
   );
 };

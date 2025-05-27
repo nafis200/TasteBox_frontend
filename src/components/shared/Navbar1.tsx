@@ -17,7 +17,7 @@ const mealItems = [
   { _id: "67c9656de5a81bbf3245b616", name: "fish and rice" },
 ];
 
-export default function Navbar() {
+export default function Navbar1() {
   const { user, setIsLoading } = useUser();
   const pathname = usePathname();
   const router = useRouter();

@@ -68,13 +68,13 @@ const Checkout = () => {
 
   return (
     <div
-      className="flex items-center justify-center min-h-screen bg-cover bg-center px-4"
+      className="flex items-center justify-center min-h-screen bg-cover bg-center px-4 dark:bg-gray-900"
       style={{
         backgroundImage: "url('https://i.postimg.cc/3w0QH6Kg/03-2.png')",
       }}
     >
-      <div className="max-w-md w-full p-6 bg-white/90 shadow-xl rounded-2xl backdrop-blur-md">
-        <h2 className="text-2xl font-bold text-center mb-6 text-primary">
+      <div className="max-w-md w-full p-6 bg-white/90 dark:bg-gray-800 shadow-xl rounded-2xl backdrop-blur-md">
+        <h2 className="text-2xl font-bold text-center mb-6 text-primary dark:text-blue-400">
           Payment Details
         </h2>
         <Form {...form}>
@@ -84,9 +84,13 @@ const Checkout = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Full Name</FormLabel>
+                  <FormLabel className="dark:text-gray-300">Full Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your name" {...field} />
+                    <Input
+                      placeholder="Enter your name"
+                      {...field}
+                      className="dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-blue-500"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -97,9 +101,13 @@ const Checkout = () => {
               name="phone_number"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone Number</FormLabel>
+                  <FormLabel className="dark:text-gray-300">Phone Number</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter phone number" {...field} />
+                    <Input
+                      placeholder="Enter phone number"
+                      {...field}
+                      className="dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-blue-500"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -110,9 +118,13 @@ const Checkout = () => {
               name="address"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Address</FormLabel>
+                  <FormLabel className="dark:text-gray-300">Address</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter your address" {...field} />
+                    <Input
+                      placeholder="Enter your address"
+                      {...field}
+                      className="dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-blue-500"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -123,12 +135,13 @@ const Checkout = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="dark:text-gray-300">Email</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Enter your email"
                       type="email"
                       {...field}
+                      className="dark:bg-gray-700 dark:text-white dark:border-gray-600 focus:ring-blue-500"
                     />
                   </FormControl>
                   <FormMessage />

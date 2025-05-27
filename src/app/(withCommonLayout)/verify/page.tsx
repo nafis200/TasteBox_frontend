@@ -35,48 +35,46 @@ const Verify = () => {
     }
   }, [order_id]);
 
-  if (isLoading) return <div className="min-h-screen text-center bg-amber-400">Loading...</div>;
-
-
+  if (isLoading) return <div className="min-h-screen text-center bg-amber-400 dark:bg-amber-700 text-gray-900 dark:text-gray-100">Loading...</div>;
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full">
-        <h1 className="text-2xl font-semibold text-center mb-4 text-gray-800">Order Verification</h1>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg max-w-3xl w-full">
+        <h1 className="text-2xl font-semibold text-center mb-4 text-gray-800 dark:text-gray-100">Order Verification</h1>
         <div className="space-y-4">
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Order ID:</span>
-            <span>{orderData[0]?.order_id}</span> 
+            <span className="font-bold text-gray-700 dark:text-gray-300">Order ID:</span>
+            <span className="text-gray-900 dark:text-gray-100">{orderData[0]?.order_id}</span> 
           </div>
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Customer Name:</span>
-            <span>{orderData[0]?.name}</span>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Customer Name:</span>
+            <span className="text-gray-900 dark:text-gray-100">{orderData[0]?.name}</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Amount:</span>
-            <span>{orderData[0]?.amount} {orderData[0]?.currency}</span>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Amount:</span>
+            <span className="text-gray-900 dark:text-gray-100">{orderData[0]?.amount} {orderData[0]?.currency}</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Paid Amount:</span>
-            <span>{orderData[0]?.received_amount} {orderData[0]?.currency}</span>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Paid Amount:</span>
+            <span className="text-gray-900 dark:text-gray-100">{orderData[0]?.received_amount} {orderData[0]?.currency}</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Payment Method:</span>
-            <span>{orderData[0]?.method}</span>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Payment Method:</span>
+            <span className="text-gray-900 dark:text-gray-100">{orderData[0]?.method}</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Payment Status:</span>
-            <span className={`${orderData[0]?.is_verify === 1 ? 'text-green-500' : 'text-red-500'}`}>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Payment Status:</span>
+            <span className={`${orderData[0]?.is_verify === 1 ? 'text-green-500 dark:text-green-400' : 'text-red-500 dark:text-red-400'}`}>
               {orderData[0]?.is_verify === 1 ? "Verified" : "Not Verified"}
             </span>
           </div>
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Transaction Status:</span>
-            <span>{orderData[0]?.sp_message}</span>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Transaction Status:</span>
+            <span className="text-gray-900 dark:text-gray-100">{orderData[0]?.sp_message}</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-bold text-gray-700">Invoice No:</span>
-            <span>{orderData[0]?.invoice_no}</span>
+            <span className="font-bold text-gray-700 dark:text-gray-300">Invoice No:</span>
+            <span className="text-gray-900 dark:text-gray-100">{orderData[0]?.invoice_no}</span>
           </div>
         </div>
       </div>

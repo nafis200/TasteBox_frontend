@@ -57,7 +57,7 @@ const PaymentDetails = () => {
 
   return (
     <div className="w-full md:w-[250px] md:sticky md:top-20 lg:w-[350px] lg:top-24 lg:sticky h-fit mt-10">
-      <div className="bg-white shadow-xl rounded-2xl p-8 border border-gray-200 dark:bg-background">
+      <div className="bg-white dark:bg-gray-900 shadow-xl rounded-2xl p-8 border border-gray-200 dark:border-gray-700">
         <h2 className="text-2xl font-bold mb-6 text-center text-gray-800 dark:text-white">
           💳 Payment Summary
         </h2>
@@ -94,7 +94,7 @@ const PaymentDetails = () => {
             value={couponCode}
             onChange={(e) => setCouponCode(e.target.value)}
             placeholder="Enter coupon"
-            className="flex-grow px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-background dark:border-gray-600 dark:text-white"
+            className="flex-grow px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white"
           />
           <Button
             disabled={!disabled}

@@ -19,7 +19,7 @@ import {
 } from "@/components/ui/sidebar";
 import { NavMain } from "./nav-main";
 import { NavUser } from "./nav-user";
-import Link from "next/link";
+// import Link from "next/link";
 import { useUser } from "@/context/UserContext";
 
 const data = {
@@ -147,11 +147,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <Link href="/">
+              {/* <Link href="/">
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <h2 className="font-bold text-xl">Meal Box</h2>
                 </div>
-              </Link>
+              </Link> */}
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

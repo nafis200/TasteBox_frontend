@@ -46,7 +46,7 @@ const TablePagination = ({ totalPage, currentPage = 1, onPageChange }: TablePagi
   };
 
   return (
-    <div className="flex items-center justify-between my-5 gap-4">
+    <div className="flex flex-wrap items-center my-5 gap-4 p-4">
       <div className="flex items-center gap-2">
         <Button
           onClick={handlePrev}
@@ -84,7 +84,7 @@ const TablePagination = ({ totalPage, currentPage = 1, onPageChange }: TablePagi
         </Button>
       </div>
 
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 p-2">
         <span className="text-sm">Show:</span>
         <select
           value={limit}
@@ -93,9 +93,9 @@ const TablePagination = ({ totalPage, currentPage = 1, onPageChange }: TablePagi
             setLimit(newLimit);
             updateQueryParams(1, newLimit);
           }}
-          className="border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none"
+          className="border border-gray-300  rounded-md px-2 py-1 text-sm focus:outline-none"
         >
-          {[2,5,10, 20, 30, 50].map((option) => (
+          {[5,10, 20, 30, 50].map((option) => (
             <option key={option} value={option}>
               {option} per page
             </option>

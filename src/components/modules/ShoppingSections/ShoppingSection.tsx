@@ -1,31 +1,34 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 const ShoppingSection = () => {
   return (
-    <section className="bg-gray-100  md:px-20">
+    <section className="bg-gray-100 dark:bg-gray-900 md:px-20 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-12">
         <div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 mb-6 leading-tight">
-            Your One-Stop <span className="text-blue-600">Shopping</span> Destination
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-6 leading-tight">
+            Your Favorite <span className="text-green-600 dark:text-green-400">Food</span> Delivered Fast
           </h2>
-          <p className="text-gray-600 text-lg mb-6">
-            Discover an unbeatable selection of the latest products at amazing prices.
-            Shop with ease, speed, and confidence – all from the comfort of your home.
-            From fashion to gadgets, we have it all.
+          <p className="text-gray-600 dark:text-gray-300 text-lg mb-6">
+            Craving something delicious? Explore our curated food selection featuring
+            fresh meals, tasty snacks, and mouth-watering shawarmas – all delivered to your door.
+            Fast, fresh, and full of flavor.
           </p>
-          <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition">
-            Start Shopping
-          </button>
+          <Link href="/mealcard">
+            <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition">
+              Order Now
+            </button>
+          </Link>
         </div>
 
         <div className="flex justify-center">
           <Image
-            src="https://i.postimg.cc/K8Jy5GG4/shopping.png"
-            alt="Shopping Banner"
+            src="https://i.postimg.cc/bv0TMvrZ/side-view-shawarma-with-fried-potatoes-board-cookware.jpg"
+            alt="Delicious Shawarma"
             width={600}
             height={400}
-            className="rounded-xl shadow-lg object-contain"
+            className="rounded-xl shadow-lg object-cover"
           />
         </div>
       </div>

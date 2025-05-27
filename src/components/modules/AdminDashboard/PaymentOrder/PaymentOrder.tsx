@@ -22,6 +22,7 @@ const PaymentOrders = ({ products, meta }: { products: any[]; meta: IMeta }) => 
           }
           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
           aria-label="Select all"
+          className="dark:ring-offset-gray-900 dark:ring-gray-500"
         />
       ),
       cell: ({ row }) => (
@@ -38,6 +39,7 @@ const PaymentOrders = ({ products, meta }: { products: any[]; meta: IMeta }) => 
             row.toggleSelected(!!value);
           }}
           aria-label="Select row"
+          className="dark:ring-offset-gray-900 dark:ring-gray-500"
         />
       ),
       enableSorting: false,
@@ -46,38 +48,40 @@ const PaymentOrders = ({ products, meta }: { products: any[]; meta: IMeta }) => 
     {
       accessorKey: "email",
       header: "Email",
-      cell: ({ row }) => <span>{row.original.email}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.email}</span>,
     },
     {
       accessorKey: "name",
       header: "Name",
-      cell: ({ row }) => <span>{row.original.name}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.name}</span>,
     },
     {
       accessorKey: "totalPrice",
       header: "Total Price",
-      cell: ({ row }) => <span>{row.original.totalPrice}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.totalPrice}</span>,
     },
     {
       accessorKey: "phone_number",
       header: "Phone Number",
-      cell: ({ row }) => <span>{row.original.phone_number}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.phone_number}</span>,
     },
     {
       accessorKey: "address",
       header: "Address",
-      cell: ({ row }) => <span>{row.original.address}</span>,
+      cell: ({ row }) => <span className="dark:text-gray-300">{row.original.address}</span>,
     },
     {
       accessorKey: "transaction.bank_status",
       header: "Transaction Status",
-      cell: ({ row }) => <span>{row.original.transaction?.bank_status}</span>,
+      cell: ({ row }) => (
+        <span className="dark:text-gray-300">{row.original.transaction?.bank_status}</span>
+      ),
     },
   ];
 
   return (
-    <div>
-      <h1 className="text-xl font-bold mb-4">Manage Transactions</h1>
+    <div className="dark:bg-gray-900 dark:text-gray-200 min-h-screen p-4 rounded-md">
+      <h1 className="text-xl font-bold mb-4 dark:text-gray-100">Manage Transactions</h1>
       <NMTable columns={columns} data={products || []} />
       <TablePagination totalPage={meta?.totalPage} />
     </div>

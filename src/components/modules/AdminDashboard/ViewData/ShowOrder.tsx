@@ -12,10 +12,30 @@ import Image from "next/image";
 import { ResponseOrder } from "@/services/MealMenu";
 import { toast } from "sonner";
 
-
 const ShowOrder = ({ products, meta }: { products: any[]; meta: IMeta }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
-  
+  const [loadingId, setLoadingId] = useState<string | null>(null);
+
+  const handleResponse = async (id: string, action: string) => {
+    setLoadingId(id);
+    try {
+      const products = {
+        order: action,
+      };
+      const res = await ResponseOrder(products, id);
+      if (res?.success) {
+        toast.success(res?.message);
+      } else {
+        toast.error(res?.message || "Failed to update response");
+      }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (error) {
+      toast.error("Something went wrong, please try again.");
+    } finally {
+      setLoadingId(null);
+    }
+  };
 
   const columns: ColumnDef<any>[] = [
     {
@@ -37,8 +57,8 @@ const ShowOrder = ({ products, meta }: { products: any[]; meta: IMeta }) => {
             if (value) {
               setSelectedIds((prev) => [...prev, row.original._id]);
             } else {
-              setSelectedIds(
-                selectedIds.filter((id) => id !== row.original._id)
+              setSelectedIds((prev) =>
+                prev.filter((id) => id !== row.original._id)
               );
             }
             row.toggleSelected(!!value);
@@ -65,9 +85,7 @@ const ShowOrder = ({ products, meta }: { products: any[]; meta: IMeta }) => {
     {
       accessorKey: "name",
       header: "Meal Name",
-      cell: ({ row }) => (
-        <span className="font-medium">{row.original.name}</span>
-      ),
+      cell: ({ row }) => <span className="font-medium">{row.original.name}</span>,
     },
     {
       accessorKey: "cuisine",
@@ -88,7 +106,7 @@ const ShowOrder = ({ products, meta }: { products: any[]; meta: IMeta }) => {
       accessorKey: "response",
       header: "Response",
       cell: ({ row }) => {
-        const response = row.original.response;
+        const response = row.original.response?.toLowerCase();
         if (response === "pending") {
           return (
             <div className="flex space-x-2">
@@ -96,6 +114,7 @@ const ShowOrder = ({ products, meta }: { products: any[]; meta: IMeta }) => {
                 size="sm"
                 variant="outline"
                 onClick={() => handleResponse(row.original._id, "accept")}
+                disabled={loadingId === row.original._id}
               >
                 Accept
               </Button>
@@ -103,33 +122,34 @@ const ShowOrder = ({ products, meta }: { products: any[]; meta: IMeta }) => {
                 size="sm"
                 variant="outline"
                 onClick={() => handleResponse(row.original._id, "decline")}
+                disabled={loadingId === row.original._id}
               >
                 Decline
               </Button>
             </div>
           );
-        } else if (response === "Accept") {
-          return <Button size="sm" variant="outline" disabled>Accepted</Button>;
-        } else if (response === "Decline") {
-          return <Button size="sm" variant="outline" disabled>Declined</Button>;
+        } else if (response === "accept") {
+          return (
+            <Button size="sm" variant="outline" disabled>
+              Accepted
+            </Button>
+          );
+        } else if (response === "decline") {
+          return (
+            <Button size="sm" variant="outline" disabled>
+              Declined
+            </Button>
+          );
         } else {
-          return <Button size="sm" variant="outline" disabled>No Action</Button>;
+          return (
+            <Button size="sm" variant="outline" disabled>
+              No Action
+            </Button>
+          );
         }
       },
     },
   ];
-
-  const handleResponse = async(id: string, action: string) => {
-     const products = {
-        order:action
-     }
-     const res = await ResponseOrder(products,id)
-     if (res?.success) {
-        toast.success(res?.message);
-      } else {
-        toast.error(res?.message);
-      }
-  };
 
   return (
     <div>

@@ -81,9 +81,10 @@ export default function Navbar1() {
              <Image
                 src="https://i.postimg.cc/0y77JqPJ/Pngtree-a-chef-holding-hamburger-and-20111871.png"
                 alt="Food Logo"
-                width={50}
-                height={50}
-                className="object-contain"
+                width={60}
+                height={60}
+                className="object-cover rounded-full"
+
               />
           </Link>
 

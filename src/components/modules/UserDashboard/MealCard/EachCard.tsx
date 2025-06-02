@@ -37,7 +37,7 @@ const EachCard = ({ product }: any) => {
         className="w-full h-48 object-cover rounded-md"
       />
       <CardContent className="pt-4">
-        <h3 className="text-xl font-semibold flex items-center gap-2 text-primary dark:text-primary">
+        <h3 className="text-xl font-semibold flex items-center gap-2 text-bold dark:text-white">
           <Tag size={18} className="text-blue-500 dark:text-blue-400" />
           {product.name}
         </h3>
@@ -64,7 +64,7 @@ const EachCard = ({ product }: any) => {
         <div className="mt-4 flex gap-3">
           <Button
             onClick={() => handleAddProduct(product)}
-            className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 dark:hover:bg-primary/80 flex items-center justify-center gap-2"
+            className="flex-1 bg-blue-600 text-primary-foreground hover:bg-primary/90 dark:hover:bg-primary/80 flex items-center justify-center gap-2 dark:text-white"
           >
             <ShoppingCart size={16} />
             Add to Cart
@@ -72,7 +72,7 @@ const EachCard = ({ product }: any) => {
           <Button
             variant="outline"
             onClick={handleViewDetails}
-            className="flex-1 border-primary text-primary hover:bg-primary/10 dark:hover:bg-primary/20 flex items-center justify-center gap-2"
+            className="flex-1 border-blue-600 text-blue-600 hover:bg-primary/10 dark:hover:bg-primary/20 flex items-center justify-center gap-2 dark:text-white"
           >
             <Eye size={16} />
             View

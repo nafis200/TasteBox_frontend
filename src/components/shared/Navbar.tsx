@@ -159,20 +159,20 @@ export default function Navbar() {
               <Home size={16} /> Home
             </Button>
           </Link>
-          <Link href="/about">
-            <Button
-              variant="ghost"
-              className="text-white flex items-center gap-1"
-            >
-              <Info size={16} /> About
-            </Button>
-          </Link>
           <Link href="/mealcard">
             <Button
               variant="ghost"
               className="text-white flex items-center gap-1"
             >
               <Box size={16} /> All Products
+            </Button>
+          </Link>
+          <Link href="/about">
+            <Button
+              variant="ghost"
+              className="text-white flex items-center gap-1"
+            >
+              <Info size={16} /> About
             </Button>
           </Link>
 

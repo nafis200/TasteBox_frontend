@@ -14,13 +14,16 @@ import {
 const ContactMe = () => {
   return (
     <div className="min-h-screen py-16 px-6 flex justify-center items-center bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="w-full max-w-4xl flex flex-col items-center justify-center gap-10">
+      <div className="w-full flex flex-col items-center justify-center gap-10">
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">
             Get in Touch With Us
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
             Have a question, feedback, or just want to say hello? We’re here to help!
+          </p>
+          <p className="text-gray-600 dark:text-gray-300 text-lg mt-3">
+            Are you craving something mouthwatering or need help with a recent order? Whether you are curious about our daily specials, want to customize a meal, have feedback to share, or are planning an event and need catering — we are here and happy to assist. At MealShop, we dont just serve meals — we serve experiences, crafted with care, passion, and a dash of love. Our commitment to freshness, flavor, and customer satisfaction drives everything we do. No matter the reason, dont hesitate to reach out — your satisfaction is our top priority, and we&apos;re always just a message away.
           </p>
         </div>
 
@@ -33,7 +36,7 @@ const ContactMe = () => {
             { icon: FaEnvelope, label: "support@mealshop.com" },
             { icon: FaClock, label: "Open Daily: 10:00 AM - 10:00 PM" },
           ].map(({ icon: Icon, label }, i) => (
-            <div key={i} className="flex items-center gap-4 text-lg text-gray-700 dark:text-gray-300">
+            <div key={i} className="flex justify-center items-center gap-4 text-lg text-gray-700 dark:text-gray-300">
               <Icon size={24} />
               <span>{label}</span>
             </div>

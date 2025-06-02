@@ -13,6 +13,11 @@ import {
   ResponsiveContainer,
   Tooltip,
   Legend,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
 } from "recharts";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,7 +30,7 @@ const Graph = ({ result }: any) => {
     { name: "Users", value: totalEmailCount },
   ];
 
-  const COLORS = ["#4f46e5", "#10b981"]; 
+  const COLORS = ["#4f46e5", "#10b981"];
 
   return (
     <div className="space-y-6">
@@ -40,7 +45,6 @@ const Graph = ({ result }: any) => {
           </CardContent>
         </Card>
 
-     
         <Card className="shadow-lg">
           <CardContent className="p-6 flex items-center justify-between">
             <div>
@@ -52,10 +56,10 @@ const Graph = ({ result }: any) => {
         </Card>
       </div>
 
-    
+  
       <Card className="shadow-lg">
         <CardContent className="p-6">
-          <h2 className="text-lg font-semibold mb-4">Amount vs Users</h2>
+          <h2 className="text-lg font-semibold mb-4">Amount vs Users (Pie Chart)</h2>
           <div className="w-full h-[250px]">
             <ResponsiveContainer>
               <PieChart>
@@ -65,7 +69,6 @@ const Graph = ({ result }: any) => {
                   cy="50%"
                   innerRadius={60}
                   outerRadius={90}
-                  fill="#8884d8"
                   paddingAngle={5}
                   dataKey="value"
                 >
@@ -76,6 +79,25 @@ const Graph = ({ result }: any) => {
                 <Tooltip />
                 <Legend verticalAlign="bottom" height={36} />
               </PieChart>
+            </ResponsiveContainer>
+          </div>
+        </CardContent>
+      </Card>
+
+     
+      <Card className="shadow-lg">
+        <CardContent className="p-6">
+          <h2 className="text-lg font-semibold mb-4">Amount vs Users (Bar Chart)</h2>
+          <div className="w-full h-[300px]">
+            <ResponsiveContainer>
+              <BarChart data={data} margin={{ top: 20, right: 30, left: 0, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="value" fill="#4f46e5" radius={[4, 4, 0, 0]} />
+              </BarChart>
             </ResponsiveContainer>
           </div>
         </CardContent>

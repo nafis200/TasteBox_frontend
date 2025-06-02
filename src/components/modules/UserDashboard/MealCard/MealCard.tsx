@@ -35,7 +35,7 @@ const MealCard = ({ products, meta }: any) => {
         <div>
           <Filtered />
         </div>
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-20 lg:ml-20">
+        <div className="grid lg:grid-cols-2 xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-6 lg:ml-20 ml-4 lg:ml-0">
           {products?.map((product: any, idx: number) => (
             <EachCard key={idx} product={product} />
           ))}

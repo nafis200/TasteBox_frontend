@@ -16,6 +16,7 @@ import {
   LogIn,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { logout } from "@/services/AuthService";
 import { useUser } from "@/context/UserContext";
 import { protectedRoutes } from "@/contants";
@@ -82,7 +83,13 @@ export default function Navbar() {
       <div className="container mx-auto px-4 py-2">
         <div className="flex flex-col lg:flex-row justify-between items-center gap-4">
           <Link href="/" className="text-2xl font-black text-white">
-            Meal Box
+             <Image
+                src="https://i.postimg.cc/0y77JqPJ/Pngtree-a-chef-holding-hamburger-and-20111871.png"
+                alt="Food Logo"
+                width={50}
+                height={50}
+                className="object-contain md:ml-3"
+              />
           </Link>
 
           <div className="w-full max-w-md relative">

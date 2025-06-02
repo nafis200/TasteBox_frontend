@@ -78,10 +78,15 @@ export default function Navbar1() {
               </SidebarTrigger>
             </div>
           <Link href="/" className="text-2xl font-black text-white whitespace-nowrap">
-            Meal Box
+             <Image
+                src="https://i.postimg.cc/0y77JqPJ/Pngtree-a-chef-holding-hamburger-and-20111871.png"
+                alt="Food Logo"
+                width={50}
+                height={50}
+                className="object-contain"
+              />
           </Link>
 
-          {/* Center: Search */}
           <div className="flex-1 max-w-lg mx-4 relative">
             <input
               type="text"
@@ -114,7 +119,6 @@ export default function Navbar1() {
             )}
           </div>
 
-          {/* Right: Circular Menu Image Button */}
           <button onClick={toggleMenu} className="shrink-0 rounded-full overflow-hidden">
             <Image
               src="https://i.postimg.cc/WpBbtZK4/03-2.png"
@@ -125,8 +129,6 @@ export default function Navbar1() {
             />
           </button>
         </div>
-
-        {/* Dropdown Menu */}
         {menuOpen && (
           <nav className="mt-4 flex flex-col gap-3 text-sm font-medium text-white">
             {[{ href: "/", label: "Home" },

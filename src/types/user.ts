@@ -9,6 +9,8 @@ type JwtPayload = {
 };
 
 export type IUser = {
+  avatarUrl: string;
+  name: any;
   jwtPayload: JwtPayload;
   iat: number;
   exp: number;

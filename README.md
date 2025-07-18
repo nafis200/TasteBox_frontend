@@ -13,7 +13,7 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
 # 🔍 Features
 
-### 1. 🔐 User Authentication
+# 1. 🔐 User Authentication
 
 -    Custom login system using email/phone + password.
 
@@ -21,7 +21,7 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
 -    Password hashing with bcrypt for security.
 
-### 2. 🧑‍🍳 Role-Based Dashboards
+# 2. 🧑‍🍳 Role-Based Dashboards
 
 -     Customer Dashboard:
 
@@ -31,26 +31,26 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
 -     Manage menus, respond to orders, track deliveries.
 
-### 3. 🍽️ Meal Selection & Preferences
+# 3. 🍽️ Meal Selection & Preferences
 
 -      Customers can filter by dietary needs (vegan, keto, etc.).
 
 -      Meal providers can define ingredients, pricing, portion sizes.
 
-### 4. 🔍 Smart Search & Match
+# 4. 🔍 Smart Search & Match
 
 -      Customers can search meals by rating, preference, cuisine.
 
 -      Providers see orders filtered by matching criteria.
 
-### 5. 🛡️ Role-Based Access Control
+# 5. 🛡️ Role-Based Access Control
 
 -      Separate routes and views for customers and providers.
 
 -      Protected routes for authentication-required pages.
 
 
-### 6. ⚖️ Authentication & Middleware
+# 6. ⚖️ Authentication & Middleware
 
 -   JWT for user session management
 
@@ -58,7 +58,7 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
 -   Custom middleware.ts for protected route access based on roles
 
-### 7. 📱 UI/UX Design Principles
+# 7. 📱 UI/UX Design Principles
 
 -   Responsive Design: Fully mobile-optimized
 

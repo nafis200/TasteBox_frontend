@@ -146,7 +146,5 @@ NEXT_PUBLIC_BASE_API=http://localhost:5000
 
 npm run dev
 
-
 # 👨‍💼 Author
-
 Nafis Ahamed📧 Email: nafisahamed14@gmail.com🌐 Portfolio: https://portfoliouser.vercel.app/

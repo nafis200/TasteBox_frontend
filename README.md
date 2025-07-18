@@ -1,19 +1,19 @@
 # 🍱 TasteBox – Personalized Meal Planning & Delivery
 
-# ✨ Project Overview
+## ✨ Project Overview
 
 TasteBox is a full-stack Meal Planning & Delivery Web Application that allows users to personalize their meal plans and receive timely deliveries based on dietary preferences and schedules. Customers can browse curated meal options, set preferences (vegan, keto, gluten-free, etc.), and schedule deliveries. Meal providers can efficiently manage menus, view and respond to customer orders, and tailor offerings to individual needs. The platform is designed with a clean, responsive UI and robust role-based access control to ensure a seamless experience for all users.
 
-# 🔗 Live & Source Links
+## 🔗 Live & Source Links
 
 - [@🌐Live Site: TasteBox Frontend](https://meal-shop-frontend.vercel.app/) 
-- [@🗃️Frontend GitHub: TasteBox Frontend Repo](https://github.com/nafis200/portfolio-backend) 
-- [@🗃️Backend GitHub: TasteBox Backend Repo](https://github.com/nafis200/assignment-6-frontend) 
+- [@🗃️Frontend GitHub: TasteBox Frontend Repo](https://github.com/nafis200/TasteBox_frontend) 
+- [@🗃️Backend GitHub: TasteBox Backend Repo](https://github.com/nafis200/TasteBox_backend) 
 
 
-# 🔍 Key Features
+# 🔍 Features
 
-1. 🔐 User Authentication
+### 1. 🔐 User Authentication
 
     Custom login system using email/phone + password.
 
@@ -21,7 +21,7 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
     Password hashing with bcrypt for security.
 
-2. 🧑‍🍳 Role-Based Dashboards
+### 2. 🧑‍🍳 Role-Based Dashboards
 
      Customer Dashboard:
 
@@ -31,27 +31,26 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
      Manage menus, respond to orders, track deliveries.
 
-3. 🍽️ Meal Selection & Preferences
+### 3. 🍽️ Meal Selection & Preferences
 
       Customers can filter by dietary needs (vegan, keto, etc.).
 
       Meal providers can define ingredients, pricing, portion sizes.
 
-4. 🔍 Smart Search & Match
+### 4. 🔍 Smart Search & Match
 
       Customers can search meals by rating, preference, cuisine.
 
       Providers see orders filtered by matching criteria.
 
-5. 🛡️ Role-Based Access Control
+### 5. 🛡️ Role-Based Access Control
 
       Separate routes and views for customers and providers.
 
       Protected routes for authentication-required pages.
 
 
-
-# ⚖️ Authentication & Middleware
+### 6. ⚖️ Authentication & Middleware
 
    JWT for user session management
 
@@ -59,7 +58,7 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
    Custom middleware.ts for protected route access based on roles
 
-# 📱 UI/UX Design Principles
+### 7. 📱 UI/UX Design Principles
 
    Responsive Design: Fully mobile-optimized
 
@@ -70,38 +69,33 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
 
 
-# 🧪 Tech Stack Used
+## 🧪 Tech Stack Used
 
 # Frontend
 
-Framework: Next.js (with App Router)
+Framework: **Next.js** (with App Router)
 
-Language: TypeScript
+Language: **TypeScript**
 
-UI: React.js, Tailwind CSS, Shadcn/ui
+UI: **React.js**, **Tailwind CSS**, **Shadcn/ui**
 
-State Management: Redux Toolkit
+State Management: **Redux Toolkit**
 
-Routing & Forms: Next Navigation, React Hook Form
+Routing & Forms: **Next Navigation**, React Hook Form
 
-Authentication: JWT
+Authentication: **JWT**
 
 # Backend (Connected via API)
 
-Runtime: Node.js
-
-Framework: Express.js
-
-Database: MongoDB (via Mongoose)
-
-Security: bcrypt, JWT
+**Node.js** with **Express** for the RESTful API
+- **MongoDB** for storing data (users, meal menus, orders)
+- **JWT** for authentication
+- **bcrypt** for password hashing
+- **Nodemailer** for email notifications
 
 # 📂 Folder Structure Overview
 
-```<details>
-  <summary>📁 Click to expand the project folder structure</summary>
-
-```bash
+```
 TasteBox/
 ├── .env.local              # Environment variables (NEXT_PUBLIC_BASE_API)
 ├── next.config.js          # Next.js configuration
@@ -123,28 +117,39 @@ TasteBox/
     ├── services/           # API call services
     ├── types/              # TypeScript interfaces and types
     └── middleware.ts       # Route protection middleware
-</details> ```
+```
 
 # 🚧 Project Setup & Installation
 
 1. Clone the Repository
 
+```bash
+
 git clone https://github.com/nafis200/TasteBox_frontend.git
 cd TasteBox_frontend
 
-2. Install Dependencies
+```
 
+2. Install Dependencies
+``` bash
 npm install
+
+```
 
 3. Set Up env varriables
 
 Create a .env.local file in the root directory and add the following line
 
+```bash
+
 NEXT_PUBLIC_BASE_API=http://localhost:5000
 
+```
 4. Run the Development Server
 
+```
 npm run dev
+```
 
 
 # 👨‍💼 Author

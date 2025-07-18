@@ -13,58 +13,47 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
 # 🔍 Features
 
-# 1. 🔐 User Authentication
+## 1. 🔐 User Authentication
 
--    Custom login system using email/phone + password.
+- Custom login system using email/phone + password
+- JWT (JSON Web Tokens) for session handling
+- Password hashing with bcrypt for security
 
--    JWT (JSON Web Tokens) for session handling.
+## 2. 🧑‍🍳 Role-Based Dashboards
 
--    Password hashing with bcrypt for security.
+**Customer Dashboard:**
+- Select meal plans, track orders, manage preferences
 
-# 2. 🧑‍🍳 Role-Based Dashboards
+**Meal Provider Dashboard:**
+- Manage menus, respond to orders, track deliveries
 
--     Customer Dashboard:
+## 3. 🍽️ Meal Selection & Preferences
 
--     Select meal plans, track orders, manage preferences.
+- Customers can filter by dietary needs (vegan, keto, etc.)
+- Meal providers can define ingredients, pricing, portion sizes
 
--     Meal Provider Dashboard:
+## 4. 🔍 Smart Search & Match
 
--     Manage menus, respond to orders, track deliveries.
+- Customers can search meals by rating, preference, cuisine
+- Providers see orders filtered by matching criteria
 
-# 3. 🍽️ Meal Selection & Preferences
+## 5. 🛡️ Role-Based Access Control
 
--      Customers can filter by dietary needs (vegan, keto, etc.).
+- Separate routes and views for customers and providers
+- Protected routes for authentication-required pages
 
--      Meal providers can define ingredients, pricing, portion sizes.
+## 6. ⚖️ Authentication & Middleware
 
-# 4. 🔍 Smart Search & Match
+- JWT for user session management
+- bcrypt for secure password encryption
+- Custom `middleware.ts` for protected route access based on roles
 
--      Customers can search meals by rating, preference, cuisine.
+## 7. 📱 UI/UX Design Principles
 
--      Providers see orders filtered by matching criteria.
+- **Responsive Design**: Fully mobile-optimized
+- **Modern UI**: Tailwind CSS + Shadcn
+- **User-Friendly**: Simple forms, clean navigation, dark mode ready
 
-# 5. 🛡️ Role-Based Access Control
-
--      Separate routes and views for customers and providers.
-
--      Protected routes for authentication-required pages.
-
-
-# 6. ⚖️ Authentication & Middleware
-
--   JWT for user session management
-
--   bcrypt for secure password encryption
-
--   Custom middleware.ts for protected route access based on roles
-
-# 7. 📱 UI/UX Design Principles
-
--   Responsive Design: Fully mobile-optimized
-
--   Modern UI: Tailwind CSS + Shadcn
-
--   User-Friendly: Simple forms, clean navigation, dark mode ready
 
 
 

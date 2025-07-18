@@ -15,57 +15,57 @@ TasteBox is a full-stack Meal Planning & Delivery Web Application that allows us
 
 1. 🔐 User Authentication
 
-Custom login system using email/phone + password.
+    Custom login system using email/phone + password.
 
-JWT (JSON Web Tokens) for session handling.
+    JWT (JSON Web Tokens) for session handling.
 
-Password hashing with bcrypt for security.
+    Password hashing with bcrypt for security.
 
 2. 🧑‍🍳 Role-Based Dashboards
 
-Customer Dashboard:
+     Customer Dashboard:
 
-Select meal plans, track orders, manage preferences.
+     Select meal plans, track orders, manage preferences.
 
-Meal Provider Dashboard:
+     Meal Provider Dashboard:
 
-Manage menus, respond to orders, track deliveries.
+     Manage menus, respond to orders, track deliveries.
 
 3. 🍽️ Meal Selection & Preferences
 
-Customers can filter by dietary needs (vegan, keto, etc.).
+      Customers can filter by dietary needs (vegan, keto, etc.).
 
-Meal providers can define ingredients, pricing, portion sizes.
+      Meal providers can define ingredients, pricing, portion sizes.
 
 4. 🔍 Smart Search & Match
 
-Customers can search meals by rating, preference, cuisine.
+      Customers can search meals by rating, preference, cuisine.
 
-Providers see orders filtered by matching criteria.
+      Providers see orders filtered by matching criteria.
 
 5. 🛡️ Role-Based Access Control
 
-Separate routes and views for customers and providers.
+      Separate routes and views for customers and providers.
 
-Protected routes for authentication-required pages.
+      Protected routes for authentication-required pages.
 
 
 
 # ⚖️ Authentication & Middleware
 
-JWT for user session management
+   JWT for user session management
 
-bcrypt for secure password encryption
+   bcrypt for secure password encryption
 
-Custom middleware.ts for protected route access based on roles
+   Custom middleware.ts for protected route access based on roles
 
 # 📱 UI/UX Design Principles
 
-Responsive Design: Fully mobile-optimized
+   Responsive Design: Fully mobile-optimized
 
-Modern UI: Tailwind CSS + Shadcn
+   Modern UI: Tailwind CSS + Shadcn
 
-User-Friendly: Simple forms, clean navigation, dark mode ready
+   User-Friendly: Simple forms, clean navigation, dark mode ready
 
 
 

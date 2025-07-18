@@ -98,7 +98,7 @@ Security: bcrypt, JWT
 
 # 📂 Folder Structure Overview
 
-```<details>
+<details>
   <summary>📁 Click to expand the project folder structure</summary>
 
 ```bash
@@ -123,7 +123,7 @@ TasteBox/
     ├── services/           # API call services
     ├── types/              # TypeScript interfaces and types
     └── middleware.ts       # Route protection middleware
-</details> ```
+</details>
 
 # 🚧 Project Setup & Installation
 

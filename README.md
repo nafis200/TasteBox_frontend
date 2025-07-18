@@ -98,27 +98,32 @@ Security: bcrypt, JWT
 
 # 📂 Folder Structure Overview
 
+```<details>
+  <summary>📁 Click to expand the project folder structure</summary>
+
+```bash
 TasteBox/
-├── .env.local                # Environment variables (NEXT_PUBLIC_BASE_API)
-├── next.config.js            # Next.js configuration
-├── tsconfig.json             # TypeScript configuration
-├── next-env.d.ts             # Auto-generated for TS support
-├── public/                   # Static assets (optional)
-├── node_modules/             # Installed dependencies
-├── package.json              # Project metadata and scripts
-├── README.md                 # Project documentation (optional)
+├── .env.local              # Environment variables (NEXT_PUBLIC_BASE_API)
+├── next.config.js          # Next.js configuration
+├── tsconfig.json           # TypeScript configuration
+├── next-env.d.ts           # Auto-generated for TS support
+├── public/                 # Static assets (optional)
+├── node_modules/           # Installed dependencies
+├── package.json            # Project metadata and scripts
+├── README.md               # Project documentation (optional)
 └── src/
-    ├── app/                  # Next.js pages & routing (App Router)
-    ├── components/           # All reusable UI components
-    ├── constants/            # Static constant values
-    ├── context/              # Global context API usage
-    ├── hooks/                # Custom React hooks
-    ├── lib/                  # Utility/helper functions
-    ├── providers/            # Context or layout providers
-    ├── redux/                # Redux slices & store setup
-    ├── services/             # API call services
-    ├── types/                # TypeScript interfaces and types
-    └── middleware.ts         # Route protection middleware
+    ├── app/                # Next.js pages & routing (App Router)
+    ├── components/         # All reusable UI components
+    ├── constants/          # Static constant values
+    ├── context/            # Global context API usage
+    ├── hooks/              # Custom React hooks
+    ├── lib/                # Utility/helper functions
+    ├── providers/          # Context or layout providers
+    ├── redux/              # Redux slices & store setup
+    ├── services/           # API call services
+    ├── types/              # TypeScript interfaces and types
+    └── middleware.ts       # Route protection middleware
+</details> ```
 
 # 🚧 Project Setup & Installation
 

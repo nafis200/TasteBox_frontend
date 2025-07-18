@@ -88,6 +88,8 @@ export default function Navbar1() {
               />
           </Link>
 
+          {/*  */}
+
           <div className="flex-1 max-w-lg mx-4 relative">
             <input
               type="text"

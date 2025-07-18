@@ -98,24 +98,27 @@ Security: bcrypt, JWT
 
 # 📂 Folder Structure Overview
 
-/src
- ┣ 📁 app              # Next.js pages & routing (App Router)
- ┣ 📁 components       # All UI components
- ┣ 📁 constants        # Static constant values
- ┣ 📁 context          # Global context API usage
- ┣ 📁 hooks            # Custom React hooks
- ┣ 📁 lib              # Utility functions
- ┣ 📁 providers        # Context or layout providers
- ┣ 📁 redux            # Redux slices & store setup
- ┣ 📁 services         # API call services
- ┣ 📁 types            # TypeScript types
- ┗ 🔴 middleware.ts    # Route protection middleware
-
-Root Directory:
- ┣ 🔴 .env.local       # Environment variables (NEXT_PUBLIC_BASE_API)
- ┣ 🔴 next.config.js   # Next.js configuration
- ┣ 🔴 tsconfig.json    # TypeScript configuration
- ┣ 🔴 next-env.d.ts    # Auto-generated for TS support
+TasteBox/
+├── .env.local                # Environment variables (NEXT_PUBLIC_BASE_API)
+├── next.config.js            # Next.js configuration
+├── tsconfig.json             # TypeScript configuration
+├── next-env.d.ts             # Auto-generated for TS support
+├── public/                   # Static assets (optional)
+├── node_modules/             # Installed dependencies
+├── package.json              # Project metadata and scripts
+├── README.md                 # Project documentation (optional)
+└── src/
+    ├── app/                  # Next.js pages & routing (App Router)
+    ├── components/           # All reusable UI components
+    ├── constants/            # Static constant values
+    ├── context/              # Global context API usage
+    ├── hooks/                # Custom React hooks
+    ├── lib/                  # Utility/helper functions
+    ├── providers/            # Context or layout providers
+    ├── redux/                # Redux slices & store setup
+    ├── services/             # API call services
+    ├── types/                # TypeScript interfaces and types
+    └── middleware.ts         # Route protection middleware
 
 # 🚧 Project Setup & Installation
 

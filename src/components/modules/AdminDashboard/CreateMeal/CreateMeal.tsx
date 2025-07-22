@@ -89,165 +89,174 @@ const CreateMeal = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background text-foreground">
-      <div className="border border-border bg-card shadow-lg rounded-xl max-w-2xl lg:max-w-7xl w-full p-6">
-        <div className="text-center mb-6">
-          <h1 className="text-2xl font-semibold">Add Meal</h1>
-          <p className="text-muted-foreground text-sm">
-            Fill out the details below to add a meal.
-          </p>
-        </div>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="grid grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Meal Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter meal name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="cuisine"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Cuisine</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter cuisine type" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="image"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Image URL</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter image URL" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="portion_size"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Portion Size</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Enter portion size" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <FormField
-              control={form.control}
-              name="ingredient"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Ingredients (comma separated)</FormLabel>
-                  <FormControl>
-                    <Textarea placeholder="Enter ingredients" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="dietary_preferences"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Dietary Preferences (comma separated)</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Enter dietary preferences"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <div className="grid grid-cols-2 gap-4">
-              <FormField
-                control={form.control}
-                name="rating"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Rating</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        step="1"
-                        min="0"
-                        max="5"
-                        placeholder="Enter rating"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="price"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Price</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="number"
-                        placeholder="Enter price"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <FormField
-              control={form.control}
-              name="availability"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Available</FormLabel>
-                  <FormControl>
-                    <Checkbox
-                      className="ml-2 mt-2"
-                      checked={field.value}
-                      onCheckedChange={field.onChange}
-                    />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <Button
-              type="submit"
-              className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:bg-primary/90"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "Adding..." : "Add Meal"}
-            </Button>
-          </form>
-        </Form>
-      </div>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100/40 via-purple-100/40 to-pink-100/40 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-foreground">
+  <div className="backdrop-blur-xl bg-white/30 dark:bg-gray-900/30 border border-white/20 dark:border-gray-700 shadow-2xl rounded-2xl max-w-2xl lg:max-w-7xl w-full p-8 transition-all duration-300">
+    <div className="text-center mb-6">
+      <h1 className="text-3xl font-bold text-gray-800 dark:text-white drop-shadow-sm">Add Meal</h1>
+      <p className="text-muted-foreground text-sm">Fill out the details below to add a meal.</p>
     </div>
+
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Meal Name */}
+          <FormField
+            control={form.control}
+            name="name"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Meal Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter meal name" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Cuisine */}
+          <FormField
+            control={form.control}
+            name="cuisine"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Cuisine</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter cuisine type" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Image URL */}
+          <FormField
+            control={form.control}
+            name="image"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Image URL</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter image URL" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Portion Size */}
+          <FormField
+            control={form.control}
+            name="portion_size"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Portion Size</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter portion size" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        {/* Ingredients */}
+        <FormField
+          control={form.control}
+          name="ingredient"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Ingredients (comma separated)</FormLabel>
+              <FormControl>
+                <Textarea placeholder="Enter ingredients" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* Dietary Preferences */}
+        <FormField
+          control={form.control}
+          name="dietary_preferences"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Dietary Preferences (comma separated)</FormLabel>
+              <FormControl>
+                <Textarea placeholder="Enter dietary preferences" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Rating */}
+          <FormField
+            control={form.control}
+            name="rating"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Rating</FormLabel>
+                <FormControl>
+                  <Input
+                    type="number"
+                    step="1"
+                    min="0"
+                    max="5"
+                    placeholder="Enter rating"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {/* Price */}
+          <FormField
+            control={form.control}
+            name="price"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Price</FormLabel>
+                <FormControl>
+                  <Input type="number" placeholder="Enter price" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </div>
+
+        {/* Availability */}
+        <FormField
+          control={form.control}
+          name="availability"
+          render={({ field }) => (
+            <FormItem className="flex items-center space-x-2">
+              <FormControl>
+                <Checkbox
+                  id="available"
+                  className="mt-1"
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <FormLabel htmlFor="available">Available</FormLabel>
+            </FormItem>
+          )}
+        />
+
+        {/* Submit Button */}
+        <Button
+          type="submit"
+          className="w-full bg-gradient-to-r from-blue-500 to-purple-500 text-white py-2 rounded-lg shadow-lg hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Adding..." : "Add Meal"}
+        </Button>
+      </form>
+    </Form>
+  </div>
+</div>
+
   );
 };
 

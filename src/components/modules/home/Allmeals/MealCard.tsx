@@ -25,32 +25,38 @@ const MealCard = async () => {
         {data?.result.slice(0, 8).map((meal: any) => (
           <Card
             key={meal._id}
-            className="w-full max-w-xs p-4 bg-white dark:bg-gray-800 shadow-md rounded-lg transition-all hover:shadow-xl flex flex-col justify-between"
+            className="group w-full max-w-xs p-4 bg-white dark:bg-gray-800 shadow-md rounded-xl transition-transform duration-300 ease-in-out hover:shadow-xl hover:-translate-y-1 hover:scale-[1.02] cursor-pointer flex flex-col justify-between"
           >
-            <Image
-              src={meal.image}
-              alt={meal.name}
-              width={500}
-              height={300}
-              className="w-full h-48 object-cover rounded-md"
-            />
+            <div className="overflow-hidden rounded-md">
+              <Image
+                src={meal.image}
+                alt={meal.name}
+                width={500}
+                height={300}
+                className="w-full h-48 object-cover rounded-md transition-transform duration-300 ease-in-out group-hover:scale-105"
+              />
+            </div>
+
             <CardContent className="pt-4 flex flex-col gap-2 flex-grow">
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-white">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white transition-colors duration-200 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                 {meal.name}
               </h3>
               <p className="text-gray-500 dark:text-gray-300">{meal.cuisine}</p>
+
               <div className="flex items-center mt-1">
                 <Rating rating={meal?.rating} />
                 <span className="ml-2 text-sm text-gray-600 dark:text-gray-300">
                   {meal.rating}
                 </span>
               </div>
+
               <p className="mt-2 text-gray-800 dark:text-white font-semibold">
                 ${meal.price.toFixed(2)}
               </p>
+
               <Link
                 href={`/mealcard/${meal._id}`}
-                className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-medium px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-all"
+                className="mt-4 inline-flex items-center justify-center gap-2 text-sm font-medium px-4 py-2 rounded-md bg-blue-600 text-white hover:bg-blue-700 transition-colors"
               >
                 Product Detail <FaArrowRight />
               </Link>

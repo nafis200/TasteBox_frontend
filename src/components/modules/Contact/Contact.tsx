@@ -13,37 +13,50 @@ import {
 
 const ContactMe = () => {
   return (
-    <div className="min-h-screen py-16 px-6 flex justify-center items-center bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="w-full flex flex-col items-center justify-center gap-10">
+    <div className="min-h-screen py-20 px-6 flex justify-center items-center bg-gradient-to-br from-white to-blue-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="w-full max-w-4xl flex flex-col items-center justify-center gap-12">
         <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+          <h2 className="text-4xl font-bold text-gray-800 dark:text-gray-100 mb-4">
             Get in Touch With Us
           </h2>
           <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Have a question, feedback, or just want to say hello? We’re here to help!
+            Have a question, feedback, or just want to say hello? We’re here to
+            help!
           </p>
-          <p className="text-gray-600 dark:text-gray-300 text-lg mt-3">
-            Are you craving something mouthwatering or need help with a recent order? Whether you are curious about our daily specials, want to customize a meal, have feedback to share, or are planning an event and need catering — we are here and happy to assist. At MealShop, we dont just serve meals — we serve experiences, crafted with care, passion, and a dash of love. Our commitment to freshness, flavor, and customer satisfaction drives everything we do. No matter the reason, dont hesitate to reach out — your satisfaction is our top priority, and we&apos;re always just a message away.
+          <p className="text-gray-600 dark:text-gray-300 text-base mt-4 max-w-3xl mx-auto leading-relaxed">
+            Are you craving something mouthwatering or need help with a recent
+            order? Whether you are curious about our daily specials, want to
+            customize a meal, or have feedback to share — we are here and happy
+            to assist. At{" "}
+            <span className="font-semibold text-blue-600 dark:text-blue-400">
+              MealShop
+            </span>
+            , we dont just serve meals — we serve experiences. Crafted with
+            care, passion, and a dash of love. Your satisfaction is our top
+            priority, and were always just a message away.
           </p>
         </div>
 
-        <div className="w-full space-y-6">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-6">
           {[
             { icon: FaMapMarkerAlt, label: "Dhaka, Bangladesh" },
             { icon: FaPhoneAlt, label: "+8801922208141" },
             { icon: FaWhatsapp, label: "+8801744136454" },
-            { icon: FaTelegramPlane, label: "+8801922208141" },
+            { icon: FaTelegramPlane, label: "@mealshop_support" },
             { icon: FaEnvelope, label: "support@mealshop.com" },
             { icon: FaClock, label: "Open Daily: 10:00 AM - 10:00 PM" },
           ].map(({ icon: Icon, label }, i) => (
-            <div key={i} className="flex justify-center items-center gap-4 text-lg text-gray-700 dark:text-gray-300">
-              <Icon size={24} />
-              <span>{label}</span>
+            <div
+              key={i}
+              className="flex items-center gap-4 p-4 rounded-xl bg-white/60 dark:bg-gray-800/70 backdrop-blur-md shadow-sm hover:shadow-md transition text-gray-800 dark:text-gray-200"
+            >
+              <Icon size={22} className="text-blue-600 dark:text-blue-400" />
+              <span className="text-base font-medium">{label}</span>
             </div>
           ))}
         </div>
 
-        <div className="flex gap-6 mt-8">
+        <div className="flex gap-6 mt-6">
           <a
             href="https://www.linkedin.com/in/n-ahamed"
             target="_blank"

@@ -4,6 +4,14 @@ import {
   SidebarInset,
   SidebarProvider,
 } from "@/components/ui/sidebar"
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Taste_box_Dashboard",
+  description: "Meal Shop restaurant",
+   icons: {
+    icon: "/faviconz.ico", 
+  },
+};
 
 export default function DashboardLayout({
   children,

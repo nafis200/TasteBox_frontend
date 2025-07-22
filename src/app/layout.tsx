@@ -15,8 +15,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Meal shop",
+  title: "Taste_box_Home",
   description: "Meal Shop restaurant",
+   icons: {
+    icon: "/faviconz.ico", 
+  },
 };
 
 export default function RootLayout({

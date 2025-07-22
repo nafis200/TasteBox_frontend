@@ -3,8 +3,11 @@ import LoginForm from '@/components/modules/auth/login/LoginForm';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
-  title: "Login Page",
+  title: "Taste_Box-Login",
   description: "Meal Shop restaurant Login Page",
+  icons: {
+    icon: "/faviconz.ico", 
+  },
 };
 
 const LoginPage = () => {

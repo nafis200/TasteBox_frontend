@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { DollarSign, Users } from "lucide-react";
+import { DollarSign, Users, User } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -32,31 +32,38 @@ const Graph = ({ result }: any) => {
 
   const COLORS = ["#4f46e5", "#10b981"];
 
+  const demoUsers = [
+    { name: "Nafis Ahamed" },
+    { name: "Rakesh biswas" },
+    { name: "Nabil Ahamed" },
+    { name: "Anamul haq" },
+    { name: "Bijoy Roy" },
+  ];
+
   return (
-    <div className="space-y-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Card className="shadow-lg">
+    <div className="space-y-6 mt-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <Card className="shadow-xl hover:shadow-2xl transition duration-300">
           <CardContent className="p-6 flex items-center justify-between">
             <div>
               <p className="text-sm text-muted-foreground">Total Amount Sell</p>
-              <h2 className="text-2xl font-bold text-blue-600">${totalAmount}</h2>
+              <h2 className="text-3xl font-bold text-blue-600">${totalAmount}</h2>
             </div>
             <DollarSign className="w-10 h-10 text-blue-500" />
           </CardContent>
         </Card>
 
-        <Card className="shadow-lg">
+        <Card className="shadow-xl hover:shadow-2xl transition duration-300">
           <CardContent className="p-6 flex items-center justify-between">
             <div>
               <p className="text-sm text-muted-foreground">Total User Buy</p>
-              <h2 className="text-2xl font-bold text-green-600">{totalEmailCount}</h2>
+              <h2 className="text-3xl font-bold text-green-600">{totalEmailCount}</h2>
             </div>
             <Users className="w-10 h-10 text-green-500" />
           </CardContent>
         </Card>
       </div>
 
-  
       <Card className="shadow-lg">
         <CardContent className="p-6">
           <h2 className="text-lg font-semibold mb-4">Amount vs Users (Pie Chart)</h2>
@@ -84,7 +91,6 @@ const Graph = ({ result }: any) => {
         </CardContent>
       </Card>
 
-     
       <Card className="shadow-lg">
         <CardContent className="p-6">
           <h2 className="text-lg font-semibold mb-4">Amount vs Users (Bar Chart)</h2>
@@ -99,6 +105,25 @@ const Graph = ({ result }: any) => {
                 <Bar dataKey="value" fill="#4f46e5" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="shadow-lg">
+        <CardContent className="p-6">
+          <h2 className="text-lg font-semibold mb-4">Recent Buyers</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {demoUsers.map((user, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-4 p-3 bg-muted/40 rounded-xl hover:shadow-md transition"
+              >
+                <div className="bg-blue-500 text-white p-2 rounded-full">
+                  <User className="w-5 h-5" />
+                </div>
+                <span className="text-base font-medium">{user.name}</span>
+              </div>
+            ))}
           </div>
         </CardContent>
       </Card>
